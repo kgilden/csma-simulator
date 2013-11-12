@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="../css/simulation.css"?>
+
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="900px"
      height="540px" viewBox="0 0 900 540" style="enable-background:new 0 0 900 540;" xml:space="preserve">
-<style type="text/css">
-<![CDATA[
-    .st0{fill:#58585A;}
-    .st1{font-family:'Arial-BoldMT';}
-    .st2{fill:#FFFFFF;}
-    .st3{font-family:'ArialMT';}
-    .st4{font-size:24;}
-]]>
-</style>
 <g id="player">
     <g id="play-fast">
         <rect x="105" y="490" class="st2" width="40" height="40"/>
