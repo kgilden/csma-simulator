@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="900px"
+     height="540px" viewBox="0 0 900 540" style="enable-background:new 0 0 900 540;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+    .st0{fill:#58585A;}
+    .st1{font-family:'Arial-BoldMT';}
+    .st2{fill:#FFFFFF;}
+    .st3{font-family:'ArialMT';}
+    .st4{font-size:24;}
+]]>
+</style>
+<g id="player">
+    <g id="play-fast">
+        <rect x="105" y="490" class="st2" width="40" height="40"/>
+        <path class="st0" d="M141.416,508.718l-6.007-3.503c-1.34-0.782-3.532-2.061-4.872-2.843l-6.207-3.503
+            c-1.341-0.782-2.638-0.151-2.638,1.399v5.64l-0.989-0.693c-1.338-0.782-3.43-2.061-4.77-2.843l-5.957-3.503
+            c-1.34-0.782-2.385-0.151-2.385,1.399v7.05c0,1.551,0,4.09,0,5.641v7.05c0,1.551,1.096,2.182,2.436,1.399l6.006-3.503
+            c1.34-0.782,3.331-2.061,4.669-2.843l0.989-0.693v5.64c0,1.551,1.297,2.182,2.638,1.399l6.106-3.503
+            c1.34-0.782,3.582-2.061,4.921-2.843l6.033-3.503C142.73,510.777,142.755,509.5,141.416,508.718z"/>
+    </g>
+    <g id="pause">
+        <rect x="5" y="490" class="st2" width="40" height="40"/>
+        <path class="st0" d="M22.18,520.009c0,1.56-1.263,2.82-2.82,2.82h-2.82c-1.557,0-2.82-1.261-2.82-2.82v-19.74
+            c0-1.56,1.263-2.82,2.82-2.82h2.82c1.557,0,2.82,1.261,2.82,2.82V520.009z"/>
+        <path class="st0" d="M36.281,520.009c0,1.56-1.263,2.82-2.82,2.82h-2.82c-1.557,0-2.82-1.261-2.82-2.82v-19.74
+            c0-1.56,1.263-2.82,2.82-2.82h2.82c1.557,0,2.82,1.261,2.82,2.82V520.009z"/>
+    </g>
+    <g id="play">
+        <rect x="55" y="490" class="st2" width="40" height="40"/>
+        <path class="st0" d="M84.194,508.718l-6.005-3.503c-1.34-0.782-3.532-2.061-4.872-2.843l-6.226-3.503
+            c-1.338-0.782-2.655-0.151-2.655,1.399v7.05c0,1.551,0,4.09,0,5.641v7.05c0,1.551,1.316,2.182,2.655,1.399l6.116-3.503
+            c1.34-0.782,3.587-2.061,4.927-2.843l6.033-3.503C85.507,510.777,85.534,509.5,84.194,508.718z"/>
+    </g>
+</g>
+<g id="text">
+    <text transform="matrix(1 0 0 1 16.6489 26.4019)" class="st0 st3 st4">apollo</text>
+    <text transform="matrix(1 0 0 1 211.3745 26.4019)" class="st0 st3 st4">hermes</text>
+    <text transform="matrix(1 0 0 1 422.6221 23.0684)" class="st0 st3 st4">pluto</text>
+    <text transform="matrix(1 0 0 1 622.5586 26.4019)" class="st0 st3 st4">vesta</text>
+    <text transform="matrix(1 0 0 1 807.5332 26.4019)" class="st0 st3 st4">minerva</text>
+</g>
+<g id="devices">
+    <g id="hermes_1_">
+        <g>
+            <path class="st0" d="M222,115v2c-0.129,1.676-1.541,3-3.25,3H213c-1.656,0-3,1.343-3,3h32c0-1.657-1.344-3-3-3h-5.75
+                c-1.709,0-3.121-1.324-3.25-3v-2H222z"/>
+            <rect x="210" y="124" class="st0" width="32" height="3"/>
+            <path class="st0" d="M194,113h28h8h28c2.209,0,4-1.791,4-4V61c0-2.209-1.791-4-4-4h-64c-2.209,0-4,1.791-4,4v48
+                C190,111.209,191.791,113,194,113z M226,111c-1.656,0-3-1.343-3-3s1.344-3,3-3s3,1.343,3,3S227.656,111,226,111z M196,65
+                c0-1.104,0.896-2,2-2h56c1.104,0,2,0.896,2,2v36c0,1.104-0.896,2-2,2h-56c-1.104,0-2-0.896-2-2V65z"/>
+        </g>
+        <g>
+            <rect x="272" y="125" class="st0" width="32" height="2"/>
+            <path class="st0" d="M306,49h-36c-1.656,0-3,1.343-3,3v69c0,1.657,1.344,3,3,3h36c1.656,0,3-1.343,3-3V52
+                C309,50.343,307.656,49,306,49z M273,60h30v8h-30V60z M273,73h30v8h-30V73z M275,103h-2V87h2V103z M304,120h-8v-8h8V120z"/>
+            <rect x="275" y="62" class="st0" width="26" height="4"/>
+            <rect x="275" y="75" class="st0" width="26" height="4"/>
+            <rect x="297" y="113" class="st0" width="6" height="6"/>
+        </g>
+    </g>
+    <g id="pluto_1_">
+        <path class="st0" d="M421,107h60c1.656,0,3-1.343,3-3V54c0-1.657-1.344-3-3-3h-60c-1.656,0-3,1.343-3,3v50
+            C418,105.657,419.344,107,421,107z M451.334,105.168c-1.657,0-3-1.343-3-3s1.343-3,3-3c1.656,0,3,1.343,3,3
+            S452.99,105.168,451.334,105.168z M424,59c0-1.104,0.896-2,2-2h50c1.104,0,2,0.896,2,2v36c0,1.104-0.896,2-2,2h-50
+            c-1.104,0-2-0.896-2-2V59z"/>
+        <rect x="418" y="134" class="st0" width="66" height="1"/>
+        <rect x="422" y="124" class="st0" width="4" height="4"/>
+        <rect x="431" y="124" class="st0" width="4" height="4"/>
+        <rect x="440" y="124" class="st0" width="4" height="4"/>
+        <rect x="449" y="124" class="st0" width="4" height="4"/>
+        <path class="st0" d="M415,110v23h72v-23H415z M421,113h18v1h-18V113z M421,116h18v1h-18V116z M421,119h18v1h-18V119z M427,129h-6
+            v-6h6V129z M436,129h-6v-6h6V129z M445,129h-6v-6h6V129z M454,129h-6v-6h6V129z M482,119h-26v-5h26V119z"/>
+    </g>
+    <g id="apollo_1_">
+        <path class="st0" d="M84,56c0-1.657-1.343-3-3-3H19c-1.657,0-3,1.343-3,3v50c0,1.657,1.343,3,3,3h62c1.657,0,3-1.343,3-3V56z
+             M50.125,107.375c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2S51.229,107.375,50.125,107.375z M78,100c0,1.104-0.896,2-2,2H24
+            c-1.104,0-2-0.896-2-2V61c0-1.104,0.896-2,2-2h52c1.104,0,2,0.896,2,2V100z"/>
+        <g>
+            <path class="st0" d="M4,119v2.5c0,1.657,1.343,3.5,3,3.5h86c1.657,0,3-1.843,3-3.5V119H4z M83.746,122.833
+                c-0.829,0-1.5-0.671-1.5-1.5s0.671-1.5,1.5-1.5s1.5,0.671,1.5,1.5S84.574,122.833,83.746,122.833z M88.579,122.833
+                c-0.829,0-1.5-0.671-1.5-1.5s0.671-1.5,1.5-1.5s1.5,0.671,1.5,1.5S89.408,122.833,88.579,122.833z"/>
+            <path class="st0" d="M85,110H15l-11,8h92L85,110z M16,116l4-4h60l4,4H16z"/>
+        </g>
+    </g>
+    <g id="minerva_1_">
+        <path class="st0" d="M816,106h60c1.656,0,3-1.343,3-3V53c0-1.657-1.344-3-3-3h-60c-1.656,0-3,1.343-3,3v50
+            C813,104.657,814.344,106,816,106z M846.334,104.168c-1.657,0-3-1.343-3-3s1.343-3,3-3c1.656,0,3,1.343,3,3
+            S847.99,104.168,846.334,104.168z M819,58c0-1.104,0.896-2,2-2h50c1.104,0,2,0.896,2,2v36c0,1.104-0.896,2-2,2h-50
+            c-1.104,0-2-0.896-2-2V58z"/>
+        <rect x="813" y="133" class="st0" width="66" height="1"/>
+        <rect x="817" y="123" class="st0" width="4" height="4"/>
+        <rect x="826" y="123" class="st0" width="4" height="4"/>
+        <rect x="835" y="123" class="st0" width="4" height="4"/>
+        <rect x="844" y="123" class="st0" width="4" height="4"/>
+        <path class="st0" d="M810,109v23h72v-23H810z M816,112h18v1h-18V112z M816,115h18v1h-18V115z M816,118h18v1h-18V118z M822,128h-6
+            v-6h6V128z M831,128h-6v-6h6V128z M840,128h-6v-6h6V128z M849,128h-6v-6h6V128z M877,118h-26v-5h26V118z"/>
+    </g>
+    <g id="vesta_1_">
+        <path class="st0" d="M683,56c0-1.657-1.344-3-3-3h-62c-1.656,0-3,1.343-3,3v50c0,1.657,1.344,3,3,3h62c1.656,0,3-1.343,3-3V56z
+             M649.125,107.375c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2S650.229,107.375,649.125,107.375z M677,100c0,1.104-0.896,2-2,2
+            h-52c-1.104,0-2-0.896-2-2V61c0-1.104,0.896-2,2-2h52c1.104,0,2,0.896,2,2V100z"/>
+        <g>
+            <path class="st0" d="M603,119v2.5c0,1.657,1.344,3.5,3,3.5h86c1.656,0,3-1.843,3-3.5V119H603z M682.746,122.833
+                c-0.829,0-1.5-0.671-1.5-1.5s0.671-1.5,1.5-1.5c0.828,0,1.5,0.671,1.5,1.5S683.574,122.833,682.746,122.833z M687.579,122.833
+                c-0.829,0-1.5-0.671-1.5-1.5s0.671-1.5,1.5-1.5s1.5,0.671,1.5,1.5S688.408,122.833,687.579,122.833z"/>
+            <path class="st0" d="M684,110h-70l-11,8h92L684,110z M615,116l4-4h60l4,4H615z"/>
+        </g>
+    </g>
+</g>
+<g id="cables">
+    <g>
+        <path id="I-shaped_1_" class="st0" d="M40,160v20h20v-20H40z M58,179H42v-18h16V179z"/>
+        <path id="I-shaped_2_" class="st0" d="M40,180v20h20v-20H40z M58,199H42v-18h16V199z"/>
+        <path id="I-shaped_3_" class="st0" d="M40,200v20h20v-20H40z M58,219H42v-18h16V219z"/>
+        <path id="I-shaped_4_" class="st0" d="M40,220v20h20v-20H40z M58,239H42v-18h16V239z"/>
+        <path id="I-shaped_16_" class="st0" d="M240,160v20h20v-20H240z M258,179h-16v-18h16V179z"/>
+        <path id="I-shaped_15_" class="st0" d="M240,180v20h20v-20H240z M258,199h-16v-18h16V199z"/>
+        <path id="I-shaped_14_" class="st0" d="M240,200v20h20v-20H240z M258,219h-16v-18h16V219z"/>
+        <path id="I-shaped_13_" class="st0" d="M240,220v20h20v-20H240z M258,239h-16v-18h16V239z"/>
+        <path id="L-shaped_1_" class="st0" d="M40,240v20h20v-20H40z M59,258h-1H43h-1v-17h1h15v1h1V258z"/>
+        <path id="L-shaped_2_" class="st0" d="M840,260h20v-20h-20V260z M858,241v1v15v1h-17v-1v-15h1v-1H858z"/>
+        <path id="I-shaped_5_" class="st0" d="M80,240H60v20h20V240z M61,258v-16h18v16H61z"/>
+        <path id="I-shaped_6_" class="st0" d="M100,240H80v20h20V240z M81,258v-16h18v16H81z"/>
+        <path id="I-shaped_7_" class="st0" d="M120,240h-20v20h20V240z M101,258v-16h18v16H101z"/>
+        <path id="I-shaped_8_" class="st0" d="M140,240h-20v20h20V240z M121,258v-16h18v16H121z"/>
+        <path id="I-shaped_12_" class="st0" d="M160,240h-20v20h20V240z M141,258v-16h18v16H141z"/>
+        <path id="I-shaped_11_" class="st0" d="M180,240h-20v20h20V240z M161,258v-16h18v16H161z"/>
+        <path id="I-shaped_10_" class="st0" d="M200,240h-20v20h20V240z M181,258v-16h18v16H181z"/>
+        <path id="I-shaped_9_" class="st0" d="M220,240h-20v20h20V240z M201,258v-16h18v16H201z"/>
+        <path id="I-shaped_17_" class="st0" d="M240,240h-20v20h20V240z M221,258v-16h18v16H221z"/>
+        <path id="T-shaped_1_" class="st0" d="M240,240v20h20v-20H240z M259,258h-18v-16h1v-1h16v1h1V258z"/>
+        <path id="I-shaped_30_" class="st0" d="M440,160v20h20v-20H440z M458,179h-16v-18h16V179z"/>
+        <path id="I-shaped_29_" class="st0" d="M440,180v20h20v-20H440z M458,199h-16v-18h16V199z"/>
+        <path id="I-shaped_28_" class="st0" d="M440,200v20h20v-20H440z M458,219h-16v-18h16V219z"/>
+        <path id="I-shaped_27_" class="st0" d="M440,220v20h20v-20H440z M458,239h-16v-18h16V239z"/>
+        <path id="I-shaped_26_" class="st0" d="M280,240h-20v20h20V240z M261,258v-16h18v16H261z"/>
+        <path id="I-shaped_25_" class="st0" d="M300,240h-20v20h20V240z M281,258v-16h18v16H281z"/>
+        <path id="I-shaped_24_" class="st0" d="M320,240h-20v20h20V240z M301,258v-16h18v16H301z"/>
+        <path id="I-shaped_23_" class="st0" d="M340,240h-20v20h20V240z M321,258v-16h18v16H321z"/>
+        <path id="I-shaped_22_" class="st0" d="M360,240h-20v20h20V240z M341,258v-16h18v16H341z"/>
+        <path id="I-shaped_21_" class="st0" d="M380,240h-20v20h20V240z M361,258v-16h18v16H361z"/>
+        <path id="I-shaped_20_" class="st0" d="M400,240h-20v20h20V240z M381,258v-16h18v16H381z"/>
+        <path id="I-shaped_19_" class="st0" d="M420,240h-20v20h20V240z M401,258v-16h18v16H401z"/>
+        <path id="I-shaped_18_" class="st0" d="M440,240h-20v20h20V240z M421,258v-16h18v16H421z"/>
+        <path id="T-shaped_2_" class="st0" d="M440,240v20h20v-20H440z M459,258h-18v-16h1v-1h16v1h1V258z"/>
+        <path id="I-shaped_43_" class="st0" d="M640,160v20h20v-20H640z M658,179h-16v-18h16V179z"/>
+        <path id="I-shaped_42_" class="st0" d="M640,180v20h20v-20H640z M658,199h-16v-18h16V199z"/>
+        <path id="I-shaped_41_" class="st0" d="M640,200v20h20v-20H640z M658,219h-16v-18h16V219z"/>
+        <path id="I-shaped_40_" class="st0" d="M640,220v20h20v-20H640z M658,239h-16v-18h16V239z"/>
+        <path id="I-shaped_39_" class="st0" d="M480,240h-20v20h20V240z M461,258v-16h18v16H461z"/>
+        <path id="I-shaped_38_" class="st0" d="M500,240h-20v20h20V240z M481,258v-16h18v16H481z"/>
+        <path id="I-shaped_37_" class="st0" d="M520,240h-20v20h20V240z M501,258v-16h18v16H501z"/>
+        <path id="I-shaped_36_" class="st0" d="M540,240h-20v20h20V240z M521,258v-16h18v16H521z"/>
+        <path id="I-shaped_35_" class="st0" d="M560,240h-20v20h20V240z M541,258v-16h18v16H541z"/>
+        <path id="I-shaped_34_" class="st0" d="M580,240h-20v20h20V240z M561,258v-16h18v16H561z"/>
+        <path id="I-shaped_33_" class="st0" d="M600,240h-20v20h20V240z M581,258v-16h18v16H581z"/>
+        <path id="I-shaped_32_" class="st0" d="M620,240h-20v20h20V240z M601,258v-16h18v16H601z"/>
+        <path id="I-shaped_31_" class="st0" d="M640,240h-20v20h20V240z M621,258v-16h18v16H621z"/>
+        <path id="T-shaped_3_" class="st0" d="M640,240v20h20v-20H640z M659,258h-18v-16h1v-1h16v1h1V258z"/>
+        <path id="I-shaped_56_" class="st0" d="M840,160v20h20v-20H840z M858,179h-16v-18h16V179z"/>
+        <path id="I-shaped_55_" class="st0" d="M840,180v20h20v-20H840z M858,199h-16v-18h16V199z"/>
+        <path id="I-shaped_54_" class="st0" d="M840,200v20h20v-20H840z M858,219h-16v-18h16V219z"/>
+        <path id="I-shaped_53_" class="st0" d="M840,220v20h20v-20H840z M858,239h-16v-18h16V239z"/>
+        <path id="I-shaped_52_" class="st0" d="M680,240h-20v20h20V240z M661,258v-16h18v16H661z"/>
+        <path id="I-shaped_51_" class="st0" d="M700,240h-20v20h20V240z M681,258v-16h18v16H681z"/>
+        <path id="I-shaped_50_" class="st0" d="M720,240h-20v20h20V240z M701,258v-16h18v16H701z"/>
+        <path id="I-shaped_49_" class="st0" d="M740,240h-20v20h20V240z M721,258v-16h18v16H721z"/>
+        <path id="I-shaped_48_" class="st0" d="M760,240h-20v20h20V240z M741,258v-16h18v16H741z"/>
+        <path id="I-shaped_47_" class="st0" d="M780,240h-20v20h20V240z M761,258v-16h18v16H761z"/>
+        <path id="I-shaped_46_" class="st0" d="M800,240h-20v20h20V240z M781,258v-16h18v16H781z"/>
+        <path id="I-shaped_45_" class="st0" d="M820,240h-20v20h20V240z M801,258v-16h18v16H801z"/>
+        <path id="I-shaped_44_" class="st0" d="M840,240h-20v20h20V240z M821,258v-16h18v16H821z"/>
+    </g>
+</g>
+<g id="connections">
+    <path id="apollo_2_" class="st0" d="M98,119.358v1.834c16.168-3.15,37.904,14.528,11,15.182C73,137.25,40,140.083,40,160h20
+        c0-5.583,0-17,48.875-20.372C139.995,137.481,115.198,116.619,98,119.358z"/>
+    <path id="hermes_2_" class="st0" d="M311,112.881v1.486c20.346-4.926,32.509,38.349-11,32.049c-27.248-3.945-60-9.079-60,13.583h20
+        c0-19.875,23.575-12.387,40-10C346.211,156.715,333.206,109.286,311,112.881z"/>
+    <path id="minerva_2_" class="st0" d="M808,113.881v1.486c-20-4.926-51.429,37.349-7.92,31.049
+        c27.248-3.945,60.08-9.079,60.08,13.583h-20c0-19.875-23.654-12.387-40.08-10C753.869,156.715,786,110.286,808,113.881z"/>
+    <path id="pluto_2_" class="st0" d="M439.193,137h-1.911c-2.809,8.771,2.718,7.739,2.718,23h20
+        C460,141.202,435.766,148.143,439.193,137z"/>
+    <path id="vesta_2_" class="st0" d="M602,119.358v1.834c-16-3.15-38.041,14.528-11.137,15.182C626.863,137.25,660,140.083,660,160
+        h-20c0-5.583-0.137-17-49.012-20.372C559.868,137.481,585,116.619,602,119.358z"/>
+</g>
+<g id="numbers">
+    <g id="apollo">
+        <rect x="5" y="280" class="st0" width="40" height="40"/>
+        <rect x="5" y="330" class="st0" width="40" height="40"/>
+        <rect x="5" y="380" class="st0" width="40" height="40"/>
+        <rect x="5" y="430" class="st0" width="40" height="40"/>
+        <rect x="55" y="280" class="st0" width="40" height="40"/>
+        <rect x="55" y="330" class="st0" width="40" height="40"/>
+        <rect x="55" y="380" class="st0" width="40" height="40"/>
+        <rect x="55" y="430" class="st0" width="40" height="40"/>
+        <text transform="matrix(1 0 0 1 18.2158 307.1895)" class="st2 st1 st4">0</text>
+        <text transform="matrix(1 0 0 1 67.8408 307.1895)" class="st2 st1 st4">1</text>
+        <text transform="matrix(1 0 0 1 18.2158 357.5645)" class="st2 st1 st4">2</text>
+        <text transform="matrix(1 0 0 1 67.8408 357.5645)" class="st2 st1 st4">3</text>
+        <text transform="matrix(1 0 0 1 18.2158 407.4395)" class="st2 st1 st4">4</text>
+        <text transform="matrix(1 0 0 1 68.0977 407.4395)" class="st2 st1 st4">5</text>
+        <text transform="matrix(1 0 0 1 18.0908 457.5645)" class="st2 st1 st4">6</text>
+        <text transform="matrix(1 0 0 1 67.7158 456.9395)" class="st2 st1 st4">7</text>
+    </g>
+    <g id="hermes">
+        <rect x="205" y="280" class="st0" width="40" height="40"/>
+        <rect x="205" y="330" class="st0" width="40" height="40"/>
+        <rect x="205" y="380" class="st0" width="40" height="40"/>
+        <rect x="205" y="430" class="st0" width="40" height="40"/>
+        <rect x="255" y="280" class="st0" width="40" height="40"/>
+        <rect x="255" y="330" class="st0" width="40" height="40"/>
+        <rect x="255" y="380" class="st0" width="40" height="40"/>
+        <rect x="255" y="430" class="st0" width="40" height="40"/>
+        <text transform="matrix(1 0 0 1 218.2158 307.1895)" class="st2 st1 st4">0</text>
+        <text transform="matrix(1 0 0 1 267.8408 307.1895)" class="st2 st1 st4">1</text>
+        <text transform="matrix(1 0 0 1 218.2158 357.5645)" class="st2 st1 st4">2</text>
+        <text transform="matrix(1 0 0 1 267.8408 357.5645)" class="st2 st1 st4">3</text>
+        <text transform="matrix(1 0 0 1 218.2158 407.4395)" class="st2 st1 st4">4</text>
+        <text transform="matrix(1 0 0 1 268.0977 407.4395)" class="st2 st1 st4">5</text>
+        <text transform="matrix(1 0 0 1 218.0908 457.5645)" class="st2 st1 st4">6</text>
+        <text transform="matrix(1 0 0 1 267.7158 456.9395)" class="st2 st1 st4">7</text>
+    </g>
+    <g id="pluto">
+        <rect x="405" y="280" class="st0" width="40" height="40"/>
+        <rect x="405" y="330" class="st0" width="40" height="40"/>
+        <rect x="405" y="380" class="st0" width="40" height="40"/>
+        <rect x="405" y="430" class="st0" width="40" height="40"/>
+        <rect x="455" y="280" class="st0" width="40" height="40"/>
+        <rect x="455" y="330" class="st0" width="40" height="40"/>
+        <rect x="455" y="380" class="st0" width="40" height="40"/>
+        <rect x="455" y="430" class="st0" width="40" height="40"/>
+        <text transform="matrix(1 0 0 1 418.2158 307.1895)" class="st2 st1 st4">0</text>
+        <text transform="matrix(1 0 0 1 467.8408 307.1895)" class="st2 st1 st4">1</text>
+        <text transform="matrix(1 0 0 1 418.2158 357.5645)" class="st2 st1 st4">2</text>
+        <text transform="matrix(1 0 0 1 467.8408 357.5645)" class="st2 st1 st4">3</text>
+        <text transform="matrix(1 0 0 1 418.2158 407.4395)" class="st2 st1 st4">4</text>
+        <text transform="matrix(1 0 0 1 468.0977 407.4395)" class="st2 st1 st4">5</text>
+        <text transform="matrix(1 0 0 1 418.0908 457.5645)" class="st2 st1 st4">6</text>
+        <text transform="matrix(1 0 0 1 467.7158 456.9395)" class="st2 st1 st4">7</text>
+    </g>
+    <g id="vesta">
+        <rect x="605" y="280" class="st0" width="40" height="40"/>
+        <rect x="605" y="330" class="st0" width="40" height="40"/>
+        <rect x="605" y="380" class="st0" width="40" height="40"/>
+        <rect x="605" y="430" class="st0" width="40" height="40"/>
+        <rect x="655" y="280" class="st0" width="40" height="40"/>
+        <rect x="655" y="330" class="st0" width="40" height="40"/>
+        <rect x="655" y="380" class="st0" width="40" height="40"/>
+        <rect x="655" y="430" class="st0" width="40" height="40"/>
+        <text transform="matrix(1 0 0 1 618.2158 307.1895)" class="st2 st1 st4">0</text>
+        <text transform="matrix(1 0 0 1 667.8408 307.1895)" class="st2 st1 st4">1</text>
+        <text transform="matrix(1 0 0 1 618.2158 357.5645)" class="st2 st1 st4">2</text>
+        <text transform="matrix(1 0 0 1 667.8408 357.5645)" class="st2 st1 st4">3</text>
+        <text transform="matrix(1 0 0 1 618.2158 407.4395)" class="st2 st1 st4">4</text>
+        <text transform="matrix(1 0 0 1 668.0977 407.4395)" class="st2 st1 st4">5</text>
+        <text transform="matrix(1 0 0 1 618.0908 457.5645)" class="st2 st1 st4">6</text>
+        <text transform="matrix(1 0 0 1 667.7158 456.9395)" class="st2 st1 st4">7</text>
+    </g>
+    <g id="minerva">
+        <rect x="805" y="280" class="st0" width="40" height="40"/>
+        <rect x="805" y="330" class="st0" width="40" height="40"/>
+        <rect x="805" y="380" class="st0" width="40" height="40"/>
+        <rect x="805" y="430" class="st0" width="40" height="40"/>
+        <rect x="855" y="280" class="st0" width="40" height="40"/>
+        <rect x="855" y="330" class="st0" width="40" height="40"/>
+        <rect x="855" y="380" class="st0" width="40" height="40"/>
+        <rect x="855" y="430" class="st0" width="40" height="40"/>
+        <text transform="matrix(1 0 0 1 818.2158 307.1895)" class="st2 st1 st4">0</text>
+        <text transform="matrix(1 0 0 1 867.8408 307.1895)" class="st2 st1 st4">1</text>
+        <text transform="matrix(1 0 0 1 818.2158 357.5645)" class="st2 st1 st4">2</text>
+        <text transform="matrix(1 0 0 1 867.8408 357.5645)" class="st2 st1 st4">3</text>
+        <text transform="matrix(1 0 0 1 818.2158 407.4395)" class="st2 st1 st4">4</text>
+        <text transform="matrix(1 0 0 1 868.0977 407.4395)" class="st2 st1 st4">5</text>
+        <text transform="matrix(1 0 0 1 818.0908 457.5645)" class="st2 st1 st4">6</text>
+        <text transform="matrix(1 0 0 1 867.7158 456.9395)" class="st2 st1 st4">7</text>
+    </g>
+</g>
+</svg>
