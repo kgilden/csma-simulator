@@ -18,3 +18,15 @@
 .st4 {
     font-size: 24;
 }
+
+.cable-default {
+    fill: #FFFFFF;
+}
+
+.cable-data {
+    fill: #9FEE00;
+}
+
+.cable-conflict {
+    fill: #FF0000;
+}

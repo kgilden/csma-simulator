@@ -103,6 +103,86 @@
         </g>
     </g>
 </g>
+<g>
+    <!-- apollo -->
+    <rect x="40px" y="160px" width="20px" height="20px" class="cable-default" />
+    <rect x="40px" y="180px" width="20px" height="20px" class="cable-default" />
+    <rect x="40px" y="200px" width="20px" height="20px" class="cable-default" />
+    <rect x="40px" y="220px" width="20px" height="20px" class="cable-default" />
+    <rect x="40px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- hermes -->
+    <rect x="240px" y="160px" width="20px" height="20px" class="cable-default" />
+    <rect x="240px" y="180px" width="20px" height="20px" class="cable-default" />
+    <rect x="240px" y="200px" width="20px" height="20px" class="cable-default" />
+    <rect x="240px" y="220px" width="20px" height="20px" class="cable-default" />
+    <rect x="240px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- pluto -->
+    <rect x="440px" y="160px" width="20px" height="20px" class="cable-default" />
+    <rect x="440px" y="180px" width="20px" height="20px" class="cable-default" />
+    <rect x="440px" y="200px" width="20px" height="20px" class="cable-default" />
+    <rect x="440px" y="220px" width="20px" height="20px" class="cable-default" />
+    <rect x="440px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- vesta -->
+    <rect x="640px" y="160px" width="20px" height="20px" class="cable-default" />
+    <rect x="640px" y="180px" width="20px" height="20px" class="cable-default" />
+    <rect x="640px" y="200px" width="20px" height="20px" class="cable-default" />
+    <rect x="640px" y="220px" width="20px" height="20px" class="cable-default" />
+    <rect x="640px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- minerva -->
+    <rect x="840px" y="160px" width="20px" height="20px" class="cable-default" />
+    <rect x="840px" y="180px" width="20px" height="20px" class="cable-default" />
+    <rect x="840px" y="200px" width="20px" height="20px" class="cable-default" />
+    <rect x="840px" y="220px" width="20px" height="20px" class="cable-default" />
+    <rect x="840px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- intermediate (apollo - hermes) -->
+    <rect x="60px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="80px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="100px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="120px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="140px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="160px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="180px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="200px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="220px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- intermediate (hermes - pluto) -->
+    <rect x="260px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="280px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="300px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="320px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="340px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="360px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="380px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="400px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="420px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- intermediate (pluto - vesta) -->
+    <rect x="460px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="480px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="500px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="520px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="540px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="560px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="580px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="600px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="620px" y="240px" width="20px" height="20px" class="cable-default" />
+
+    <!-- intermediate (vesta - minerva) -->
+    <rect x="660px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="680px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="700px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="720px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="740px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="760px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="780px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="800px" y="240px" width="20px" height="20px" class="cable-default" />
+    <rect x="820px" y="240px" width="20px" height="20px" class="cable-default" />
+</g>
 <g id="cables">
     <g>
         <path id="I-shaped_1_" class="st0" d="M40,160v20h20v-20H40z M58,179H42v-18h16V179z"/>
