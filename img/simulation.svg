@@ -36,7 +36,7 @@
     <text transform="matrix(1 0 0 1 807.5332 26.4019)" class="st0 st3 st4">minerva</text>
 </g>
 <g id="devices">
-    <g id="hermes_1_">
+    <g id="hermes" class="device">
         <g>
             <path class="st0" d="M222,115v2c-0.129,1.676-1.541,3-3.25,3H213c-1.656,0-3,1.343-3,3h32c0-1.657-1.344-3-3-3h-5.75
                 c-1.709,0-3.121-1.324-3.25-3v-2H222z"/>
@@ -54,7 +54,7 @@
             <rect x="297" y="113" class="st0" width="6" height="6"/>
         </g>
     </g>
-    <g id="pluto_1_">
+    <g id="pluto" class="device">
         <path class="st0" d="M421,107h60c1.656,0,3-1.343,3-3V54c0-1.657-1.344-3-3-3h-60c-1.656,0-3,1.343-3,3v50
             C418,105.657,419.344,107,421,107z M451.334,105.168c-1.657,0-3-1.343-3-3s1.343-3,3-3c1.656,0,3,1.343,3,3
             S452.99,105.168,451.334,105.168z M424,59c0-1.104,0.896-2,2-2h50c1.104,0,2,0.896,2,2v36c0,1.104-0.896,2-2,2h-50
@@ -67,7 +67,7 @@
         <path class="st0" d="M415,110v23h72v-23H415z M421,113h18v1h-18V113z M421,116h18v1h-18V116z M421,119h18v1h-18V119z M427,129h-6
             v-6h6V129z M436,129h-6v-6h6V129z M445,129h-6v-6h6V129z M454,129h-6v-6h6V129z M482,119h-26v-5h26V119z"/>
     </g>
-    <g id="apollo_1_">
+    <g id="apollo" class="device">
         <path class="st0" d="M84,56c0-1.657-1.343-3-3-3H19c-1.657,0-3,1.343-3,3v50c0,1.657,1.343,3,3,3h62c1.657,0,3-1.343,3-3V56z
              M50.125,107.375c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2S51.229,107.375,50.125,107.375z M78,100c0,1.104-0.896,2-2,2H24
             c-1.104,0-2-0.896-2-2V61c0-1.104,0.896-2,2-2h52c1.104,0,2,0.896,2,2V100z"/>
@@ -78,7 +78,7 @@
             <path class="st0" d="M85,110H15l-11,8h92L85,110z M16,116l4-4h60l4,4H16z"/>
         </g>
     </g>
-    <g id="minerva_1_">
+    <g id="minerva" class="device">
         <path class="st0" d="M816,106h60c1.656,0,3-1.343,3-3V53c0-1.657-1.344-3-3-3h-60c-1.656,0-3,1.343-3,3v50
             C813,104.657,814.344,106,816,106z M846.334,104.168c-1.657,0-3-1.343-3-3s1.343-3,3-3c1.656,0,3,1.343,3,3
             S847.99,104.168,846.334,104.168z M819,58c0-1.104,0.896-2,2-2h50c1.104,0,2,0.896,2,2v36c0,1.104-0.896,2-2,2h-50
@@ -91,7 +91,7 @@
         <path class="st0" d="M810,109v23h72v-23H810z M816,112h18v1h-18V112z M816,115h18v1h-18V115z M816,118h18v1h-18V118z M822,128h-6
             v-6h6V128z M831,128h-6v-6h6V128z M840,128h-6v-6h6V128z M849,128h-6v-6h6V128z M877,118h-26v-5h26V118z"/>
     </g>
-    <g id="vesta_1_">
+    <g id="vesta" class="device">
         <path class="st0" d="M683,56c0-1.657-1.344-3-3-3h-62c-1.656,0-3,1.343-3,3v50c0,1.657,1.344,3,3,3h62c1.656,0,3-1.343,3-3V56z
              M649.125,107.375c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2S650.229,107.375,649.125,107.375z M677,100c0,1.104-0.896,2-2,2
             h-52c-1.104,0-2-0.896-2-2V61c0-1.104,0.896-2,2-2h52c1.104,0,2,0.896,2,2V100z"/>
@@ -103,7 +103,7 @@
         </g>
     </g>
 </g>
-<g>
+<g id="cables">
     <!-- apollo -->
     <rect x="40px" y="160px" width="20px" height="20px" class="cable-default" />
     <rect x="40px" y="180px" width="20px" height="20px" class="cable-default" />
@@ -258,8 +258,8 @@
     <path id="vesta_2_" class="st0" d="M602,119.358v1.834c-16-3.15-38.041,14.528-11.137,15.182C626.863,137.25,660,140.083,660,160
         h-20c0-5.583-0.137-17-49.012-20.372C559.868,137.481,585,116.619,602,119.358z"/>
 </g>
-<g id="numbers">
-    <g id="apollo">
+<g id="numpads">
+    <g id="numpad-apollo">
         <rect x="5" y="280" class="st0" width="40" height="40"/>
         <rect x="5" y="330" class="st0" width="40" height="40"/>
         <rect x="5" y="380" class="st0" width="40" height="40"/>
@@ -277,7 +277,7 @@
         <text transform="matrix(1 0 0 1 18.0908 457.5645)" class="st2 st1 st4">6</text>
         <text transform="matrix(1 0 0 1 67.7158 456.9395)" class="st2 st1 st4">7</text>
     </g>
-    <g id="hermes">
+    <g id="numpad-hermes">
         <rect x="205" y="280" class="st0" width="40" height="40"/>
         <rect x="205" y="330" class="st0" width="40" height="40"/>
         <rect x="205" y="380" class="st0" width="40" height="40"/>
@@ -295,7 +295,7 @@
         <text transform="matrix(1 0 0 1 218.0908 457.5645)" class="st2 st1 st4">6</text>
         <text transform="matrix(1 0 0 1 267.7158 456.9395)" class="st2 st1 st4">7</text>
     </g>
-    <g id="pluto">
+    <g id="numpad-pluto">
         <rect x="405" y="280" class="st0" width="40" height="40"/>
         <rect x="405" y="330" class="st0" width="40" height="40"/>
         <rect x="405" y="380" class="st0" width="40" height="40"/>
@@ -313,7 +313,7 @@
         <text transform="matrix(1 0 0 1 418.0908 457.5645)" class="st2 st1 st4">6</text>
         <text transform="matrix(1 0 0 1 467.7158 456.9395)" class="st2 st1 st4">7</text>
     </g>
-    <g id="vesta">
+    <g id="numpad-vesta">
         <rect x="605" y="280" class="st0" width="40" height="40"/>
         <rect x="605" y="330" class="st0" width="40" height="40"/>
         <rect x="605" y="380" class="st0" width="40" height="40"/>
@@ -331,7 +331,7 @@
         <text transform="matrix(1 0 0 1 618.0908 457.5645)" class="st2 st1 st4">6</text>
         <text transform="matrix(1 0 0 1 667.7158 456.9395)" class="st2 st1 st4">7</text>
     </g>
-    <g id="minerva">
+    <g id="numpad-minerva">
         <rect x="805" y="280" class="st0" width="40" height="40"/>
         <rect x="805" y="330" class="st0" width="40" height="40"/>
         <rect x="805" y="380" class="st0" width="40" height="40"/>
