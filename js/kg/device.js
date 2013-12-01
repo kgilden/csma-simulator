@@ -62,15 +62,8 @@ var kg = window.kg || {};
      * @param {String}    length Length of the telegram
      */
     device.prototype.sendTlg = function sendTlg(target, length) {
-        var packet;
-
         for (var i = 0; i < length; i++) {
-            packet = {
-                source: this,
-                target: target,
-            };
-
-            this._packets.push(packet);
+            this._packets.push(new kg.packet(this, target, this));
         }
 
         return this;
@@ -79,20 +72,19 @@ var kg = window.kg || {};
     /**
      * Receives a packet.
      *
-     * @param {Object}    source
-     * @param {kg.device} target
+     * @param {kg.packet} packet
      *
      * @returns {Boolean} whether the message was successfully received or
      *                     false, if the message wasn't addressed to this
      *                     device.
      */
     device.prototype.receivePacket = function receivePacket(packet) {
-        if (packet.target !== this) {
-            // The packet is not meant for this device.
-            return false;
+        if (packet.isTo(this)) {
+            return true;
         }
 
-        return true;
+        // The packet is not meant for this device.
+        return false;
     };
 
     /**

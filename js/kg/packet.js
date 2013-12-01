@@ -37,14 +37,30 @@ var kg = window.kg || {};
     };
 
     /**
-     * Whether the packet originated from the specified object.
-     *
      * @param {Object} from
      *
-     * @returns {Boolean}
+     * @returns {Boolean} Whether the packet originated form the specified object
      */
     packet.prototype.isFrom = function isFrom(from) {
         return this._from === from;
+    };
+
+    /**
+     * @param {Object} to
+     *
+     * @returns {Boolean} Whether the packet is to be sent to the specified object
+     */
+    packet.prototype.isTo = function isTo(to) {
+        return this._to === to;
+    };
+
+    /**
+     * @param {Object} previous
+     *
+     * @returns {Boolean} Whether the previous location of the packet was the specified object
+     */
+    packet.prototype.isPrevious = function isPrevious(previous) {
+        return this._previous === previous;
     };
 
     /**

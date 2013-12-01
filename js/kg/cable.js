@@ -70,14 +70,31 @@ var kg = window.kg || {};
      * @returns {Boolean} Whether the messages was successfully received
      */
     cable.prototype.receivePacket = function receivePacket(packet) {
-        if (this._packetRx) {
-            // A packet has already been received during this tick.
+        if (this._packetRx && this._packetRx.isConflict()) {
+            // There's already a conflict packet in Rx - the received packet
+            // is simply dropped.
             return false;
         }
 
+        if (this._packetRx && this._packetRx.isRegular() && packet.isRegular()) {
+            // There's a regular packet in Rx and another regular packet was
+            // received. This marks the beginning of a conflict.
+
+            this._packetRx = kg.packet.conflict();
+
+            updateElement(this._$element, this._packetRx);
+
+            return false;
+        }
+
+        // There's either no packet in Rx in which case any packet will do or
+        // a conflicting packet was received and thus the previous one is
+        // overriden.
         this._packetRx = packet;
 
-        return true;
+        updateElement(this._$element, packet);
+
+        return packet.isRegular();
     };
 
     /**
@@ -102,17 +119,37 @@ var kg = window.kg || {};
     /**
      * Sends a single packet to the connected devices.
      *
-     * @param {Array}  connections An array of connections
-     * @param {Object} the packet to be sent
+     * @param {Array}     connections An array of connections
+     * @param {kg.packet} the packet to be sent
      */
     function sendPacket(connections, packet) {
         for (var i in connections) {
-            if (connections[i] === packet.from) {
+
+            if (packet.isPrevious(connections[i])) {
                 // Don't send the packet back to where it came from.
                 continue;
             }
 
             connections[i].receivePacket(packet);
+        }
+    }
+
+    /**
+     * Updates the dom element to reflect the current state of this piece
+     * of cable based on the packet.
+     *
+     * @param {jQuery|null} $element The target element
+     * @param {Object}      packet   The packet to be used
+     */
+    function updateElement($element, packet) {
+        if (!$element) {
+            return;
+        }
+
+        if (packet.isRegular()) {
+            $element.addClass('packet-regular');
+        } else {
+            $element.addClass('packet-conflict');
         }
     }
 

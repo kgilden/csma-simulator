@@ -24,11 +24,12 @@ describe('kg.device', function () {
     });
 
     it('converts telegrams to individual packets for sending', function () {
-        var device,
+        var target = {},
+            device,
             expected;
 
         device = new kg.device();
-        device.sendTlg({}, 2);
+        device.sendTlg(target, 2);
 
         expected = [
             {source: device, target: {}},
@@ -36,8 +37,9 @@ describe('kg.device', function () {
         ];
 
         for (var i in expected) {
-            expect(device._packets[i].source).toEqual(expected[i].source);
-            expect(device._packets[i].target).toEqual(expected[i].target);
+            expect(device._packets[i].isFrom(device)).toEqual(true);
+            expect(device._packets[i].isTo(target)).toEqual(true);
+            expect(device._packets[i].isPrevious(device)).toEqual(true);
         }
     });
 
@@ -58,29 +60,12 @@ describe('kg.device', function () {
         expect(connection.receivePacket.calls.length).toEqual(1);
     });
 
-    it('ignores packets not addressed to it', function () {
-        var packet,
-            deviceA = new kg.device(),
-            deviceB = new kg.device();
+    it('only accepts packets addressed to it', function () {
+        var packetA = {isTo: function () { return false; }},
+            packetB = {isTo: function () { return true; }},
+            device = new kg.device();
 
-        packet = {
-            source: deviceB,
-            target: deviceB
-        };
-
-        expect(deviceA.receivePacket(packet)).toBeFalsy();
-    });
-
-    it('accepts packets addressed to it', function () {
-        var packet,
-            deviceA = new kg.device(),
-            deviceB = new kg.device();
-
-        packet = {
-            source: deviceB,
-            target: deviceA
-        };
-
-        expect(deviceA.receivePacket(packet)).toBeTruthy();
+        expect(device.receivePacket(packetA)).toEqual(false);
+        expect(device.receivePacket(packetB)).toEqual(true);
     });
 });

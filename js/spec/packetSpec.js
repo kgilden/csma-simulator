@@ -16,12 +16,27 @@ describe('kg.packet', function () {
     });
 
     it('can tell if it originated from a specific source', function () {
-
         var source = {},
             packet = new kg.packet(source);
 
         expect(packet.isFrom(source)).toEqual(true);
         expect(packet.isFrom({})).toEqual(false);
+    });
+
+    it('can tell if it\'s meant for a specific target', function () {
+        var to = {},
+            packet = new kg.packet(null, to);
+
+        expect(packet.isTo(to)).toEqual(true);
+        expect(packet.isTo({})).toEqual(false);
+    });
+
+    it('can tell where it was previously', function () {
+        var previous = {},
+            packet = new kg.packet(null, null, previous);
+
+        expect(packet.isPrevious(previous)).toEqual(true);
+        expect(packet.isPrevious({})).toEqual(false);
     });
 
     it('can tell if it was previously in a specific object', function () {
