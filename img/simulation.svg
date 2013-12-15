@@ -131,83 +131,83 @@
 </g>
 <g id="cables">
     <!-- apollo -->
-    <rect id="c1" class="cable-default rel-c2-apollo" x="40px" y="160px" width="20px" height="20px" />
-    <rect id="c2" class="cable-default rel-c1-c3" x="40px" y="180px" width="20px" height="20px" />
-    <rect id="c3" class="cable-default rel-c2-c4" x="40px" y="200px" width="20px" height="20px" />
-    <rect id="c4" class="cable-default rel-c3-c5" x="40px" y="220px" width="20px" height="20px" />
-    <rect id="c5" class="cable-default rel-c4-c26" x="40px" y="240px" width="20px" height="20px" />
+    <rect id="c1" class="cbl-def rel-c2-apollo" x="40px" y="160px" width="20px" height="20px" />
+    <rect id="c2" class="cbl-def rel-c1-c3" x="40px" y="180px" width="20px" height="20px" />
+    <rect id="c3" class="cbl-def rel-c2-c4" x="40px" y="200px" width="20px" height="20px" />
+    <rect id="c4" class="cbl-def rel-c3-c5" x="40px" y="220px" width="20px" height="20px" />
+    <rect id="c5" class="cbl-def rel-c4-c26" x="40px" y="240px" width="20px" height="20px" />
 
     <!--  hermes -->
-    <rect id="c6" class="cable-default rel-c7-hermes" x="240px" y="160px" width="20px" height="20px" />
-    <rect id="c7" class="cable-default rel-c6-c8" x="240px" y="180px" width="20px" height="20px" />
-    <rect id="c8" class="cable-default rel-c7-c9" x="240px" y="200px" width="20px" height="20px" />
-    <rect id="c9" class="cable-default rel-c8-c10" x="240px" y="220px" width="20px" height="20px" />
-    <rect id="c10" class="cable-default rel-c9-c34-c35" x="240px" y="240px" width="20px" height="20px" />
+    <rect id="c6" class="cbl-def rel-c7-hermes" x="240px" y="160px" width="20px" height="20px" />
+    <rect id="c7" class="cbl-def rel-c6-c8" x="240px" y="180px" width="20px" height="20px" />
+    <rect id="c8" class="cbl-def rel-c7-c9" x="240px" y="200px" width="20px" height="20px" />
+    <rect id="c9" class="cbl-def rel-c8-c10" x="240px" y="220px" width="20px" height="20px" />
+    <rect id="c10" class="cbl-def rel-c9-c34-c35" x="240px" y="240px" width="20px" height="20px" />
 
     <!--  pluto -->
-    <rect id="c11" class="cable-default rel-c12-pluto" x="440px" y="160px" width="20px" height="20px" />
-    <rect id="c12" class="cable-default rel-c11-c13" x="440px" y="180px" width="20px" height="20px" />
-    <rect id="c13" class="cable-default rel-c12-c14" x="440px" y="200px" width="20px" height="20px" />
-    <rect id="c14" class="cable-default rel-c13-c15" x="440px" y="220px" width="20px" height="20px" />
-    <rect id="c15" class="cable-default rel-c14-c43-c44" x="440px" y="240px" width="20px" height="20px" />
+    <rect id="c11" class="cbl-def rel-c12-pluto" x="440px" y="160px" width="20px" height="20px" />
+    <rect id="c12" class="cbl-def rel-c11-c13" x="440px" y="180px" width="20px" height="20px" />
+    <rect id="c13" class="cbl-def rel-c12-c14" x="440px" y="200px" width="20px" height="20px" />
+    <rect id="c14" class="cbl-def rel-c13-c15" x="440px" y="220px" width="20px" height="20px" />
+    <rect id="c15" class="cbl-def rel-c14-c43-c44" x="440px" y="240px" width="20px" height="20px" />
 
     <!--  vesta -->
-    <rect id="c16" class="cable-default rel-c17-vesta" x="640px" y="160px" width="20px" height="20px" />
-    <rect id="c17" class="cable-default rel-c16-c18" x="640px" y="180px" width="20px" height="20px" />
-    <rect id="c18" class="cable-default rel-c17-c19" x="640px" y="200px" width="20px" height="20px" />
-    <rect id="c19" class="cable-default rel-c18-c20" x="640px" y="220px" width="20px" height="20px" />
-    <rect id="c20" class="cable-default rel-c19-c52-c53" x="640px" y="240px" width="20px" height="20px" />
+    <rect id="c16" class="cbl-def rel-c17-vesta" x="640px" y="160px" width="20px" height="20px" />
+    <rect id="c17" class="cbl-def rel-c16-c18" x="640px" y="180px" width="20px" height="20px" />
+    <rect id="c18" class="cbl-def rel-c17-c19" x="640px" y="200px" width="20px" height="20px" />
+    <rect id="c19" class="cbl-def rel-c18-c20" x="640px" y="220px" width="20px" height="20px" />
+    <rect id="c20" class="cbl-def rel-c19-c52-c53" x="640px" y="240px" width="20px" height="20px" />
 
     <!--  minerva -->
-    <rect id="c21" class="cable-default rel-c22-minerva" x="840px" y="160px" width="20px" height="20px" />
-    <rect id="c22" class="cable-default rel-c21-c23" x="840px" y="180px" width="20px" height="20px" />
-    <rect id="c23" class="cable-default rel-c22-c24" x="840px" y="200px" width="20px" height="20px" />
-    <rect id="c24" class="cable-default rel-c23-c25" x="840px" y="220px" width="20px" height="20px" />
-    <rect id="c25" class="cable-default rel-c24-c61" x="840px" y="240px" width="20px" height="20px" />
+    <rect id="c21" class="cbl-def rel-c22-minerva" x="840px" y="160px" width="20px" height="20px" />
+    <rect id="c22" class="cbl-def rel-c21-c23" x="840px" y="180px" width="20px" height="20px" />
+    <rect id="c23" class="cbl-def rel-c22-c24" x="840px" y="200px" width="20px" height="20px" />
+    <rect id="c24" class="cbl-def rel-c23-c25" x="840px" y="220px" width="20px" height="20px" />
+    <rect id="c25" class="cbl-def rel-c24-c61" x="840px" y="240px" width="20px" height="20px" />
 
     <!--  intermediate (apollo - hermes) -->
-    <rect id="c26" class="cable-default rel-c5-c27" x="60px" y="240px" width="20px" height="20px" />
-    <rect id="c27" class="cable-default rel-c26-c28" x="80px" y="240px" width="20px" height="20px" />
-    <rect id="c28" class="cable-default rel-c27-c29" x="100px" y="240px" width="20px" height="20px" />
-    <rect id="c29" class="cable-default rel-c28-c30" x="120px" y="240px" width="20px" height="20px" />
-    <rect id="c30" class="cable-default rel-c29-c31" x="140px" y="240px" width="20px" height="20px" />
-    <rect id="c31" class="cable-default rel-c30-c32" x="160px" y="240px" width="20px" height="20px" />
-    <rect id="c32" class="cable-default rel-c31-c33" x="180px" y="240px" width="20px" height="20px" />
-    <rect id="c33" class="cable-default rel-c32-c34" x="200px" y="240px" width="20px" height="20px" />
-    <rect id="c34" class="cable-default rel-c33-c10" x="220px" y="240px" width="20px" height="20px" />
+    <rect id="c26" class="cbl-def rel-c5-c27" x="60px" y="240px" width="20px" height="20px" />
+    <rect id="c27" class="cbl-def rel-c26-c28" x="80px" y="240px" width="20px" height="20px" />
+    <rect id="c28" class="cbl-def rel-c27-c29" x="100px" y="240px" width="20px" height="20px" />
+    <rect id="c29" class="cbl-def rel-c28-c30" x="120px" y="240px" width="20px" height="20px" />
+    <rect id="c30" class="cbl-def rel-c29-c31" x="140px" y="240px" width="20px" height="20px" />
+    <rect id="c31" class="cbl-def rel-c30-c32" x="160px" y="240px" width="20px" height="20px" />
+    <rect id="c32" class="cbl-def rel-c31-c33" x="180px" y="240px" width="20px" height="20px" />
+    <rect id="c33" class="cbl-def rel-c32-c34" x="200px" y="240px" width="20px" height="20px" />
+    <rect id="c34" class="cbl-def rel-c33-c10" x="220px" y="240px" width="20px" height="20px" />
 
     <!--  intermediate (hermes - pluto) -->
-    <rect id="c35" class="cable-default rel-c10-c36" x="260px" y="240px" width="20px" height="20px" />
-    <rect id="c36" class="cable-default rel-c35-c37" x="280px" y="240px" width="20px" height="20px" />
-    <rect id="c37" class="cable-default rel-c36-c38" x="300px" y="240px" width="20px" height="20px" />
-    <rect id="c38" class="cable-default rel-c37-c39" x="320px" y="240px" width="20px" height="20px" />
-    <rect id="c39" class="cable-default rel-c38-c40" x="340px" y="240px" width="20px" height="20px" />
-    <rect id="c40" class="cable-default rel-c39-c41" x="360px" y="240px" width="20px" height="20px" />
-    <rect id="c41" class="cable-default rel-c40-c42" x="380px" y="240px" width="20px" height="20px" />
-    <rect id="c42" class="cable-default rel-c41-c43" x="400px" y="240px" width="20px" height="20px" />
-    <rect id="c43" class="cable-default rel-c42-c15" x="420px" y="240px" width="20px" height="20px" />
+    <rect id="c35" class="cbl-def rel-c10-c36" x="260px" y="240px" width="20px" height="20px" />
+    <rect id="c36" class="cbl-def rel-c35-c37" x="280px" y="240px" width="20px" height="20px" />
+    <rect id="c37" class="cbl-def rel-c36-c38" x="300px" y="240px" width="20px" height="20px" />
+    <rect id="c38" class="cbl-def rel-c37-c39" x="320px" y="240px" width="20px" height="20px" />
+    <rect id="c39" class="cbl-def rel-c38-c40" x="340px" y="240px" width="20px" height="20px" />
+    <rect id="c40" class="cbl-def rel-c39-c41" x="360px" y="240px" width="20px" height="20px" />
+    <rect id="c41" class="cbl-def rel-c40-c42" x="380px" y="240px" width="20px" height="20px" />
+    <rect id="c42" class="cbl-def rel-c41-c43" x="400px" y="240px" width="20px" height="20px" />
+    <rect id="c43" class="cbl-def rel-c42-c15" x="420px" y="240px" width="20px" height="20px" />
 
     <!-- intermediate (pluto - vesta) -->
-    <rect id="c44" class="cable-default rel-c45-c15" x="460px" y="240px" width="20px" height="20px" />
-    <rect id="c45" class="cable-default rel-c44-c46" x="480px" y="240px" width="20px" height="20px" />
-    <rect id="c46" class="cable-default rel-c45-c47" x="500px" y="240px" width="20px" height="20px" />
-    <rect id="c47" class="cable-default rel-c46-c48" x="520px" y="240px" width="20px" height="20px" />
-    <rect id="c48" class="cable-default rel-c47-c49" x="540px" y="240px" width="20px" height="20px" />
-    <rect id="c49" class="cable-default rel-c48-c50" x="560px" y="240px" width="20px" height="20px" />
-    <rect id="c50" class="cable-default rel-c49-c51" x="580px" y="240px" width="20px" height="20px" />
-    <rect id="c51" class="cable-default rel-c50-c52" x="600px" y="240px" width="20px" height="20px" />
-    <rect id="c52" class="cable-default rel-c51-c20" x="620px" y="240px" width="20px" height="20px" />
+    <rect id="c44" class="cbl-def rel-c45-c15" x="460px" y="240px" width="20px" height="20px" />
+    <rect id="c45" class="cbl-def rel-c44-c46" x="480px" y="240px" width="20px" height="20px" />
+    <rect id="c46" class="cbl-def rel-c45-c47" x="500px" y="240px" width="20px" height="20px" />
+    <rect id="c47" class="cbl-def rel-c46-c48" x="520px" y="240px" width="20px" height="20px" />
+    <rect id="c48" class="cbl-def rel-c47-c49" x="540px" y="240px" width="20px" height="20px" />
+    <rect id="c49" class="cbl-def rel-c48-c50" x="560px" y="240px" width="20px" height="20px" />
+    <rect id="c50" class="cbl-def rel-c49-c51" x="580px" y="240px" width="20px" height="20px" />
+    <rect id="c51" class="cbl-def rel-c50-c52" x="600px" y="240px" width="20px" height="20px" />
+    <rect id="c52" class="cbl-def rel-c51-c20" x="620px" y="240px" width="20px" height="20px" />
 
     <!-- intermediate (vesta - minerva) -->
-    <rect id="c53" class="cable-default rel-c54-c20" x="660px" y="240px" width="20px" height="20px" />
-    <rect id="c54" class="cable-default rel-c53-c55" x="680px" y="240px" width="20px" height="20px" />
-    <rect id="c55" class="cable-default rel-c54-c56" x="700px" y="240px" width="20px" height="20px" />
-    <rect id="c56" class="cable-default rel-c55-c57" x="720px" y="240px" width="20px" height="20px" />
-    <rect id="c57" class="cable-default rel-c56-c58" x="740px" y="240px" width="20px" height="20px" />
-    <rect id="c58" class="cable-default rel-c57-c59" x="760px" y="240px" width="20px" height="20px" />
-    <rect id="c59" class="cable-default rel-c58-c60" x="780px" y="240px" width="20px" height="20px" />
-    <rect id="c60" class="cable-default rel-c59-c61" x="800px" y="240px" width="20px" height="20px" />
-    <rect id="c61" class="cable-default rel-c60-c25" x="820px" y="240px" width="20px" height="20px" />
+    <rect id="c53" class="cbl-def rel-c54-c20" x="660px" y="240px" width="20px" height="20px" />
+    <rect id="c54" class="cbl-def rel-c53-c55" x="680px" y="240px" width="20px" height="20px" />
+    <rect id="c55" class="cbl-def rel-c54-c56" x="700px" y="240px" width="20px" height="20px" />
+    <rect id="c56" class="cbl-def rel-c55-c57" x="720px" y="240px" width="20px" height="20px" />
+    <rect id="c57" class="cbl-def rel-c56-c58" x="740px" y="240px" width="20px" height="20px" />
+    <rect id="c58" class="cbl-def rel-c57-c59" x="760px" y="240px" width="20px" height="20px" />
+    <rect id="c59" class="cbl-def rel-c58-c60" x="780px" y="240px" width="20px" height="20px" />
+    <rect id="c60" class="cbl-def rel-c59-c61" x="800px" y="240px" width="20px" height="20px" />
+    <rect id="c61" class="cbl-def rel-c60-c25" x="820px" y="240px" width="20px" height="20px" />
 </g>
 <g id="cable-borders">
     <path id="I-shaped_1_" class="st0" d="M40,160v20h20v-20H40z M58,179H42v-18h16V179z"/>
