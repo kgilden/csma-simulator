@@ -19,6 +19,18 @@
     font-size: 24;
 }
 
+.device {
+    cursor: pointer;
+}
+
+.device-bg {
+    fill: #9FEE00;
+}
+
+.device-screen {
+    fill: #FFFFFF;
+}
+
 .cbl-def {
     fill: #FFFFFF;
 }
