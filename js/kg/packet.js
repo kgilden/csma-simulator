@@ -37,6 +37,19 @@ var kg = window.kg || {};
     };
 
     /**
+     * @param {kg.device|kg.cable|null} previous Optionally modify the previous location
+     *
+     * @returns {kg.packet} A clone of the packet
+     */
+    packet.prototype.clone = function clone(previous) {
+        var clone = new packet(this._from, this._to, previous || this._previous);
+
+        clone.setIsConflict(this.isConflict());
+
+        return clone;
+    };
+
+    /**
      * @param {Object} from
      *
      * @returns {Boolean} Whether the packet originated form the specified object
@@ -62,17 +75,6 @@ var kg = window.kg || {};
     packet.prototype.isPrevious = function isPrevious(previous) {
         return this._previous === previous;
     };
-
-    /**
-     * Whether the packet was previously in the given object.
-     *
-     * @param {Object} previous
-     *
-     * @returns {Boolean}
-     */
-    packet.prototype.isPrevious = function isPrevious(previous) {
-        return this._previous === previous;
-    }
 
     /**
      * @returns {Boolean}

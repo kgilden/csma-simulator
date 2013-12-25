@@ -15,6 +15,19 @@ describe('kg.packet', function () {
         expect(packet.isRegular()).toEqual(false);
     });
 
+    it('can be cloned', function () {
+        var packet = new kg.packet(),
+            clone;
+
+        clone = packet.clone();
+
+        expect(clone._from).toEqual(packet._from);
+        expect(clone._to).toEqual(packet._to);
+        expect(clone._previous).toEqual(packet._previous);
+
+        expect(packet.clone({})._previous).not.toEqual(packet._previous);
+    });
+
     it('can tell if it originated from a specific source', function () {
         var source = {},
             packet = new kg.packet(source);
