@@ -7,16 +7,22 @@ var kg = window.kg || {};
  * between the devices, each acting on its own. This results in a pixelated
  * line acting as the backbone of our LAN.
  */
-(function (kg) {
+(function (kg, $) {
 
     if (kg.cable) {
         return;
     }
 
+    var defaults = {
+        class_default: 'cbl-def',
+        class_data: 'cbl-dat',
+        class_conflict: 'cbl-nok'
+    };
+
     /**
      * @param {null|jQuery} $element
      */
-    var cable = function createCable($element) {
+    var cable = function createCable($element, options) {
         // Visual representation of the device.
         this._$element = null;
 
@@ -28,6 +34,9 @@ var kg = window.kg || {};
 
         // A list of connections to other components.
         this._connections = [];
+
+        // Cable settings (options are merged into default values).
+        this._settings = $.extend({}, defaults, options);
 
         if ($element) {
             this.setElement($element);
@@ -70,6 +79,7 @@ var kg = window.kg || {};
      * @returns {Boolean} Whether the messages was successfully received
      */
     cable.prototype.receivePacket = function receivePacket(packet) {
+
         if (this._packetRx && this._packetRx.isConflict()) {
             // There's already a conflict packet in Rx - the received packet
             // is simply dropped.
@@ -82,8 +92,6 @@ var kg = window.kg || {};
 
             this._packetRx = kg.packet.conflict();
 
-            updateElement(this._$element, this._packetRx);
-
             return false;
         }
 
@@ -92,37 +100,86 @@ var kg = window.kg || {};
         // overriden.
         this._packetRx = packet;
 
-        updateElement(this._$element, packet);
-
         return packet.isRegular();
     };
 
     /**
-     * Orders the cable to simulate a clock tick.
+     * Executes all necessary tasks prior to the tick.
      */
-    cable.prototype.tick = function tick() {
-        var packet;
-
-        if (packet = this._packetTx) {
-
-            this._packetTx = null;
-
-            sendPacket(this._connections, packet);
+    cable.prototype.preTick = function moveRxToTx() {
+        if (!this._packetRx) {
+            return this;
         }
 
         this._packetTx = this._packetRx;
-        this._packetRx = null;
+
+        if (!this._packetRx.isConflict()) {
+            // Keep conflict packets in the table.
+            this._packetRx = null;
+        }
 
         return this;
     };
 
     /**
-     * Sends a single packet to the connected devices.
-     *
-     * @param {Array}     connections An array of connections
-     * @param {kg.packet} the packet to be sent
+     * Orders the cable to simulate a clock tick.
      */
-    function sendPacket(connections, packet) {
+    cable.prototype.tick = function updateAndTransmitPacket() {
+        updateElement(this._$element, this._packetTx, [
+            this._settings.class_default,
+            this._settings.class_data,
+            this._settings.class_conflict
+        ]);
+
+        if (!this._packetTx) {
+            return this;
+        }
+
+        transmitPacket(this._packetTx, this, this._connections);
+
+        this._packetTx = null;
+
+        return this;
+    };
+
+    /**
+     * Updates the dom element to reflect the current state of this piece
+     * of cable based on the packet.
+     *
+     * @param {jQuery|null} $element   The target element
+     * @param {Object}      packet     The packet to be used
+     * @param {Array}       classNames List of used class names
+     */
+    function updateElement($element, packet, classNames) {
+        if (!$element) {
+            return;
+        }
+
+        var classList = $element[0].classList;
+
+        // First remove all previous `cbl-*` classes.
+        for (var i in classNames) {
+            classList.remove(classNames[i]);
+        }
+
+        // Now, based on the packet type and whether a packet was even sent,
+        // decide which class to add.
+        if (!packet) {
+            classList.add(classNames[0]);
+        } else {
+            classList.add(packet.isRegular() ? classNames[1] : classNames[2]);
+        }
+    }
+
+    /**
+     * Transmits the packet to all connected components except for the
+     * connection from where the packet was received.
+     *
+     * @param {kg.packet} The packet to transmit
+     * @param {kg.cable}  New previous location of the packet
+     * @param {Array}     A list of components where to send the packet
+     */
+    function transmitPacket(packet, newPrevious, connections) {
         for (var i in connections) {
 
             if (packet.isPrevious(connections[i])) {
@@ -130,29 +187,10 @@ var kg = window.kg || {};
                 continue;
             }
 
-            connections[i].receivePacket(packet);
-        }
-    }
-
-    /**
-     * Updates the dom element to reflect the current state of this piece
-     * of cable based on the packet.
-     *
-     * @param {jQuery|null} $element The target element
-     * @param {Object}      packet   The packet to be used
-     */
-    function updateElement($element, packet) {
-        if (!$element) {
-            return;
-        }
-
-        if (packet.isRegular()) {
-            $element.addClass('packet-regular');
-        } else {
-            $element.addClass('packet-conflict');
+            connections[i].receivePacket(packet.clone(newPrevious));
         }
     }
 
     kg.cable = cable;
 
-})(kg);
+})(kg, jQuery);
