@@ -17,17 +17,23 @@ var kg = window.kg || {};
         // Visual representation of the device.
         this._$element = null;
 
-        // A queue of packets to be sent out on subsequent ticks.
-        this._packets = [];
+        // A queue of telegrams to be sent out. Each element is an object
+        // containing the the initial length of the telegram and the number
+        // of sent packets as well as the target device.
+        this._tlgs = [];
+
+        // Number of failed attempts
+        this._failedAttempts = 0;
 
         // A list of connections from this device.
         this._connections = [];
 
+        // Whether the device received a packet within the previous cycle.
+        this._receivedPacket = false;
+
         if ($element) {
             this.setElement($element);
         }
-
-        this._connections = [];
     };
 
     /**
@@ -62,9 +68,11 @@ var kg = window.kg || {};
      * @param {String}    length Length of the telegram
      */
     device.prototype.sendTlg = function sendTlg(target, length) {
-        for (var i = 0; i < length; i++) {
-            this._packets.push(new kg.packet(this, target, this));
-        }
+        this._tlgs.push({
+            target: target,
+            length: length,
+            sendCount: 0
+        });
 
         return this;
     };
@@ -79,7 +87,14 @@ var kg = window.kg || {};
      *                     device.
      */
     device.prototype.receivePacket = function receivePacket(packet) {
+        this._receivedPacket = true;
+
+        if (packet.isCollision()) {
+            this._isCollision = true;
+        }
+
         if (packet.isTo(this)) {
+
             return true;
         }
 
@@ -91,13 +106,83 @@ var kg = window.kg || {};
      * Orders the device to simulate a clock tick.
      */
     device.prototype.tick = function tick() {
-        var packet;
+        var tlg;
 
-        if (packet = this._packets.shift()) {
-            sendPacket(this._connections, packet);
+        if (this._waitTime) {
+            this._waitTime--;
+
+            this._receivedPacket = false;
+
+            return this;
         }
 
+        if (tlg = this.getNextTlgForTx()) {
+
+            if (this.isTxBlocked()) {
+                // Oh shit, the line is blocked! Better reset the telegram
+                // send count.
+                tlg.sendCount = 0;
+
+                this._failedAttempts += (this._failedAttempts < 7 ? 1 : 0);
+
+                this._waitTime = 10 * Math.round(Math.random() * (Math.pow(2, this._failedAttempts) - 1));
+
+            } else {
+
+                this._failedAttempts = 0;
+
+                sendPacket(this._connections, new kg.packet(this, tlg.target, this));
+                tlg.sendCount++;
+
+            }
+
+        }
+
+        // Reset the flag for the next cycle.
+        this._receivedPacket = false;
+
         return this;
+    };
+
+    device.prototype.getNextTlgForTx = function getNextTlgForTx() {
+        var tlg;
+
+        while (this._tlgs.length > 0) {
+            tlg = this._tlgs[0];
+
+            // This telegram shouldn't even be on the list anymore as all of
+            // its packets have been sent, discard it and move on to fetching
+            // the next telegram.
+            if (tlg.sendCount >= tlg.length) {
+                this._tlgs.shift();
+
+                continue;
+            }
+
+            // The telegram is ready for use.
+            return tlg;
+        }
+    };
+
+    /**
+     * Whether there is a collision in the system.
+     *
+     * @returns {Boolean}
+     */
+    device.prototype.isCollision = function isCollision() {
+        return this._isCollision;
+    };
+
+    /**
+     * Whether the device is blocked for transmitting packets. This can happen
+     * when there's either a conflict or some other device is transmitting.
+     *
+     * @returns {Boolean}
+     */
+    device.prototype.isTxBlocked = function isTxBlocked() {
+        // Either the device received a packet within the previous cycle
+        // or there has been a conflict.
+        return this._receivedPacket || this.isCollision();
     };
 
     /**

@@ -16,7 +16,7 @@ var kg = window.kg || {};
     var defaults = {
         class_default: 'cbl-def',
         class_data: 'cbl-dat',
-        class_conflict: 'cbl-nok'
+        class_collision: 'cbl-nok'
     };
 
     /**
@@ -80,17 +80,17 @@ var kg = window.kg || {};
      */
     cable.prototype.receivePacket = function receivePacket(packet) {
 
-        if (this._packetRx && this._packetRx.isConflict()) {
-            // There's already a conflict packet in Rx - the received packet
+        if (this._packetRx && this._packetRx.isCollision()) {
+            // There's already a collision in Rx - the received packet
             // is simply dropped.
             return false;
         }
 
         if (this._packetRx && this._packetRx.isRegular() && packet.isRegular()) {
             // There's a regular packet in Rx and another regular packet was
-            // received. This marks the beginning of a conflict.
+            // received. This marks the beginning of a collision.
 
-            this._packetRx = kg.packet.conflict();
+            this._packetRx = kg.packet.collision();
 
             return false;
         }
@@ -113,8 +113,8 @@ var kg = window.kg || {};
 
         this._packetTx = this._packetRx;
 
-        if (!this._packetRx.isConflict()) {
-            // Keep conflict packets in the table.
+        if (!this._packetRx.isCollision()) {
+            // Keep collision packets in the cable.
             this._packetRx = null;
         }
 
@@ -128,7 +128,7 @@ var kg = window.kg || {};
         updateElement(this._$element, this._packetTx, [
             this._settings.class_default,
             this._settings.class_data,
-            this._settings.class_conflict
+            this._settings.class_collision
         ]);
 
         if (!this._packetTx) {

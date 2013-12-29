@@ -20,20 +20,20 @@ var kg = window.kg || {};
         this._to       = to || null;
         this._previous = previous || null;
 
-        this.setIsConflict(false);
+        this.setIsCollision(false);
     };
 
     /**
-     * Creates a new conflicting packet.
+     * Creates a new collision packet.
      *
      * @param {kg.device|kg.cable|null} from Originating source of the packet
      */
-    packet.conflict = function createConflictingPacket(from) {
-        var conflict = new packet(from);
+    packet.collision = function createCollisionPacket(from) {
+        var collision = new packet(from);
 
-        conflict.setIsConflict(true);
+        collision.setIsCollision(true);
 
-        return conflict;
+        return collision;
     };
 
     /**
@@ -44,7 +44,7 @@ var kg = window.kg || {};
     packet.prototype.clone = function clone(previous) {
         var clone = new packet(this._from, this._to, previous || this._previous);
 
-        clone.setIsConflict(this.isConflict());
+        clone.setIsCollision(this.isCollision());
 
         return clone;
     };
@@ -80,21 +80,21 @@ var kg = window.kg || {};
      * @returns {Boolean}
      */
     packet.prototype.isRegular = function isRegular() {
-        return !this._isConflict;
+        return !this._isCollision;
     };
 
     /**
      * @returns {Boolean}
      */
-    packet.prototype.isConflict = function isConflict() {
-        return this._isConflict;
+    packet.prototype.isCollision = function isCollision() {
+        return this._isCollision;
     };
 
     /**
-     * @param {Boolean} isConflict
+     * @param {Boolean} isCollision
      */
-    packet.prototype.setIsConflict = function setIsConflict(isConflict) {
-        this._isConflict = isConflict;
+    packet.prototype.setIsCollision = function setIsCollision(isCollision) {
+        this._isCollision = isCollision;
     };
 
     kg.packet = packet;

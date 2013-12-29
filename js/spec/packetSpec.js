@@ -8,10 +8,10 @@ describe('kg.packet', function () {
         expect(packet._previous).toBeDefined();
     });
 
-    it('has a method for creating conflicting packets', function () {
-        var packet = kg.packet.conflict();
+    it('has a method for creating collision packets', function () {
+        var packet = kg.packet.collision();
 
-        expect(packet.isConflict()).toEqual(true);
+        expect(packet.isCollision()).toEqual(true);
         expect(packet.isRegular()).toEqual(false);
     });
 

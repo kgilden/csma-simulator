@@ -35,18 +35,18 @@ describe('kg.cable', function () {
 
     it('creates a conflict packet, if it receives more than a single packet per tick', function () {
         var cable = new kg.cable(),
-            packet = {isRegular: function () { return true; }, isConflict: function () { return false; }};
+            packet = {isRegular: function () { return true; }, isCollision: function () { return false; }};
 
         cable.receivePacket(packet);
         cable.receivePacket(packet);
 
-        expect(cable._packetRx.isConflict()).toEqual(true);
+        expect(cable._packetRx.isCollision()).toEqual(true);
     });
 
     it('doesn\'t send out packets during a `preTick`', function () {
         var cable = new kg.cable(),
             connection = {},
-            packet = {isRegular: function () { return true; }, isConflict: function () { return false; }, isPrevious: function () { return false; }, clone: function () { return this; }};
+            packet = {isRegular: function () { return true; }, isCollision: function () { return false; }, isPrevious: function () { return false; }, clone: function () { return this; }};
 
         connection.receivePacket = jasmine.createSpy();
 
@@ -59,8 +59,8 @@ describe('kg.cable', function () {
 
     it('drops all packets after the conflicting packet', function () {
         var cable = new kg.cable(),
-            conflict = {isConflict: function () { return true; }, isRegular: function () { return false; }},
-            regular = {isConflict: function () { return false; }, isRegular: function () { return true; }};
+            conflict = {isCollision: function () { return true; }, isRegular: function () { return false; }},
+            regular = {isCollision: function () { return false; }, isRegular: function () { return true; }};
 
         cable.receivePacket(conflict);
         cable.receivePacket(regular);
@@ -73,8 +73,8 @@ describe('kg.cable', function () {
             conflict = {},
             regular = {};
 
-        conflict.isRegular = regular.isConflict = function () { return false; };
-        conflict.isConflict = regular.isRegular = function () { return true; };
+        conflict.isRegular = regular.isCollision = function () { return false; };
+        conflict.isCollision = regular.isRegular = function () { return true; };
 
         cable.receivePacket(conflict);
 
@@ -95,7 +95,7 @@ describe('kg.cable', function () {
 
         packet = {
             isRegular: function () { return true; },
-            isConflict: function () { return false; },
+            isCollision: function () { return false; },
             clone: function () {},
             isPrevious: function (previous) { return previous === source; },
         };
@@ -124,7 +124,7 @@ describe('kg.cable', function () {
 
         cable.receivePacket({
             isRegular: function () { return true; },
-            isConflict: function () { return false; },
+            isCollision: function () { return false; },
         });
 
         cable.preTick();

@@ -4,7 +4,9 @@ describe('kg.device', function () {
         var device = new kg.device();
 
         expect(device._$element).toBeDefined();
-        expect(device._packets).toBeDefined();
+        expect(device._tlgs).toBeDefined();
+        expect(device._failedAttempts).toBeDefined();
+        expect(device._receivedPacket).toBeDefined();
         expect(device._connections).toBeDefined();
     });
 
@@ -21,26 +23,6 @@ describe('kg.device', function () {
 
         device.setElement($baz);
         expect(device._$element).toEqual($baz);
-    });
-
-    it('converts telegrams to individual packets for sending', function () {
-        var target = {},
-            device,
-            expected;
-
-        device = new kg.device();
-        device.sendTlg(target, 2);
-
-        expected = [
-            {source: device, target: {}},
-            {source: device, target: {}},
-        ];
-
-        for (var i in expected) {
-            expect(device._packets[i].isFrom(device)).toEqual(true);
-            expect(device._packets[i].isTo(target)).toEqual(true);
-            expect(device._packets[i].isPrevious(device)).toEqual(true);
-        }
     });
 
     it('sends telegrams through connections', function () {
@@ -60,10 +42,37 @@ describe('kg.device', function () {
         expect(connection.receivePacket.calls.length).toEqual(1);
     });
 
+    it('sends accumulated packets after it\'s not blocked anymore', function () {
+        var device = new kg.device(),
+            connection = { receivePacket: function () {} };
+
+        spyOn(connection, 'receivePacket');
+
+        device._isCollision = true;
+        device.addConnection(connection);
+        device.sendTlg(device, 1);
+        device.tick();
+
+        expect(connection.receivePacket.calls.length).toEqual(0);
+        expect(device._waitTime).toBeGreaterThan(0);
+
+        device._isCollision = false;
+
+        while (device._waitTime) {
+            device.tick();
+        }
+
+        device.tick();
+
+        expect(connection.receivePacket.calls.length).toEqual(1);
+    });
+
     it('only accepts packets addressed to it', function () {
         var packetA = {isTo: function () { return false; }},
             packetB = {isTo: function () { return true; }},
             device = new kg.device();
+
+        packetA.isCollision = packetB.isCollision = function () { return false; };
 
         expect(device.receivePacket(packetA)).toEqual(false);
         expect(device.receivePacket(packetB)).toEqual(true);
