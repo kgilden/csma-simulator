@@ -19,6 +19,53 @@
     font-size: 24;
 }
 
+.txt-fps {
+    font-family: 'Arial';
+    font-weight: bold;
+    font-size: 24px;
+    fill: #58585A;
+}
+
+.btn-pause-inactive,
+.btn-pause-active {
+    cursor: pointer;
+    fill: #FFF;
+}
+
+.btn-pause-inactive:hover > path,
+.btn-pause-active:hover > path {
+    fill: #9FEE00;
+}
+
+.btn-pause-inactive:active > path,
+.btn-pause-active:active > path {
+    fill: #58585A;
+}
+
+.btn-pause-inactive > path {
+    fill: #58585A;
+}
+
+.btn-pause-active > path {
+    fill: #B30000;
+}
+
+.btn-speed {
+    cursor: pointer;
+}
+
+.btn-speed:hover .btn-speed-icon {
+    fill: #9FEE00;
+}
+
+.btn-speed:active .btn-speed-icon {
+    fill: #58585A;
+}
+
+.btn-speed-icon {
+    fill: #58585A;
+}
+
 .device {
     cursor: pointer;
 }

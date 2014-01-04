@@ -18,8 +18,14 @@ var kg = window.kg || {};
     defaults = {
         deviceNames: ['apollo', 'hermes', 'pluto', 'vesta', 'minerva'],
         deviceClass: '.device',
+        btnPause: '.btn-pause-active, .btn-pause-inactive',
+        btnPauseActive: 'btn-pause-active',
+        btnPauseInactive: 'btn-pause-inactive',
+        btnSpeedIncrease: '.btn-speed-increase',
+        btnSpeedDecrease: '.btn-speed-decrease',
+        txtFps: '.txt-fps',
         cableClass: '.cbl',
-        tickRate: 5,
+        tickRate: 4,
         tlgLength: 100
     };
 
@@ -47,10 +53,123 @@ var kg = window.kg || {};
         // Hook up devices and cables.
         connectComponents(simulator);
 
-        // Timer setup.
-        setInterval(function callTickHandler(simulator) {
+        // Event handler for (un)pausing the simulation.
+        $(this._settings.btnPause, kg.context).on('click', function callToggleSimulation(e) {
+            simulator.toggleSimulation(e);
+        });
+
+        // Event handler for increasing the simulation speed.
+        $(this._settings.btnSpeedIncrease, kg.context).on('click', function callIncreaseSpeed(e) {
+            simulator.increaseSpeed(e);
+        });
+
+        // Event handler for decreasing the simulation speed.
+        $(this._settings.btnSpeedDecrease, kg.context).on('click', function callDecreaseSpeed(e) {
+            simulator.decreaseSpeed(e);
+        });
+
+        simulator.updateFpsTxt(this._settings.tickRate);
+
+        // Start the simulation.
+        simulator.startSimulation();
+    };
+
+    /**
+     * Starts the simulation.
+     */
+    simulator.prototype.startSimulation = function startSimulation() {
+        this._intervalId = setInterval(function callTickHandler(simulator) {
             simulator.tickHandler.call(simulator);
-        }, 1000 / settings.tickRate, simulator);
+        }, 1000 / this._settings.tickRate, this);
+    };
+
+    /**
+     * Stops the simulation.
+     */
+    simulator.prototype.stopSimulation = function stopSimulation() {
+        if (this._intervalId !== null) {
+            clearInterval(this._intervalId);
+
+            this._intervalId = null;
+        }
+    };
+
+    /**
+     * Toggles the simulation (paused vs playing).
+     */
+    simulator.prototype.toggleSimulation = function toggleSimulation(e) {
+        var $btn = $(e.currentTarget);
+
+        if (this._intervalId === null) {
+            this.startSimulation();
+
+            removeClass($btn, this._settings.btnPauseActive);
+            addClass($btn, this._settings.btnPauseInactive);
+        } else {
+            this.stopSimulation();
+
+            removeClass($btn, this._settings.btnPauseInactive);
+            addClass($btn, this._settings.btnPauseActive);
+        }
+    };
+
+    /**
+     * Updates the display with the new tickrate.
+     *
+     * @param newTickRate
+     */
+    simulator.prototype.updateFpsTxt = function updateFpsTxt(newTickRate) {
+        $(this._settings.txtFps, kg.context).text(newTickRate + ' fps');
+    };
+
+    /**
+     * Changes the tickrate by the given delta.
+     *
+     * @param {Number} delta
+     */
+    simulator.prototype.changeTickRate = function changeTickRate(delta) {
+        var newTickRate = this._settings.tickRate + delta;
+
+        if (newTickRate < 1 || 32 < newTickRate) {
+            return;
+        }
+
+        console.log('setting tickrate to ' + newTickRate);
+
+        this._settings.tickRate = newTickRate;
+
+        $(this._settings.txtFps, kg.context).text(newTickRate + ' fps');
+
+        // Restarts only if it's already running as to not unintentionally unpause.
+        if (this._intervalId) {
+            this.stopSimulation();
+            this.startSimulation();
+        }
+    };
+
+    /**
+     * @returns {Number} The tickrate
+     */
+    simulator.prototype.getTickRate = function getTickRate() {
+        return this._settings.tickRate;
+    };
+
+    /**
+     * Increases the simulation speed by doubling the tickrate.
+     *
+     * @param e
+     */
+    simulator.prototype.increaseSpeed = function increaseSpeed(e) {
+        this.changeTickRate(this.getTickRate());
+    };
+
+    /**
+     * Decreases the simulation speed by cutting the tickrate in half.
+     *
+     * @param e
+     */
+    simulator.prototype.decreaseSpeed = function decreaseSpeed(e) {
+        this.changeTickRate(-0.5 * this.getTickRate());
     };
 
     simulator.prototype.tickHandler = function tickHandler() {
@@ -231,6 +350,30 @@ var kg = window.kg || {};
         }
 
         return relatedIds;
+    }
+
+    /**
+     * Adds a class to the elements.
+     *
+     * @param {jQuery} $elements
+     * @param {String} className
+     */
+    function addClass($elements, className) {
+        $elements.each(function () {
+            this.classList.add(className);
+        });
+    }
+
+    /**
+     * Removes a class from the elements.
+     *
+     * @param {jQuery} $elements
+     * @param {String} className
+     */
+    function removeClass($elements, className) {
+        $elements.each(function () {
+            this.classList.remove(className);
+        });
     }
 
     kg.simulator = simulator;
