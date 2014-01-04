@@ -286,94 +286,176 @@
 </g>
 <g id="numpads">
     <g id="numpad-apollo">
-        <rect x="5" y="280" class="st0" width="40" height="40"/>
-        <rect x="5" y="330" class="st0" width="40" height="40"/>
-        <rect x="5" y="380" class="st0" width="40" height="40"/>
-        <rect x="5" y="430" class="st0" width="40" height="40"/>
-        <rect x="55" y="280" class="st0" width="40" height="40"/>
-        <rect x="55" y="330" class="st0" width="40" height="40"/>
-        <rect x="55" y="380" class="st0" width="40" height="40"/>
-        <rect x="55" y="430" class="st0" width="40" height="40"/>
-        <text transform="matrix(1 0 0 1 18.2158 307.1895)" class="st2 st1 st4">0</text>
-        <text transform="matrix(1 0 0 1 67.8408 307.1895)" class="st2 st1 st4">1</text>
-        <text transform="matrix(1 0 0 1 18.2158 357.5645)" class="st2 st1 st4">2</text>
-        <text transform="matrix(1 0 0 1 67.8408 357.5645)" class="st2 st1 st4">3</text>
-        <text transform="matrix(1 0 0 1 18.2158 407.4395)" class="st2 st1 st4">4</text>
-        <text transform="matrix(1 0 0 1 68.0977 407.4395)" class="st2 st1 st4">5</text>
-        <text transform="matrix(1 0 0 1 18.0908 457.5645)" class="st2 st1 st4">6</text>
-        <text transform="matrix(1 0 0 1 67.7158 456.9395)" class="st2 st1 st4">7</text>
+        <g class="numpad-key numpad-key-0">
+            <rect x="5" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 18.2158 307.1895)" class="st2 st1 st4">0</text>
+        </g>
+        <g class="numpad-key numpad-key-1">
+            <rect x="55" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 67.8408 307.1895)" class="st2 st1 st4">1</text>
+        </g>
+        <g class="numpad-key numpad-key-2">
+            <rect x="5" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 18.2158 357.5645)" class="st2 st1 st4">2</text>
+        </g>
+        <g class="numpad-key numpad-key-3">
+            <rect x="55" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 67.8408 357.5645)" class="st2 st1 st4">3</text>
+        </g>
+        <g class="numpad-key numpad-key-4">
+            <rect x="5" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 18.2158 407.4395)" class="st2 st1 st4">4</text>
+        </g>
+        <g class="numpad-key numpad-key-5">
+            <rect x="55" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 68.0977 407.4395)" class="st2 st1 st4">5</text>
+        </g>
+        <g class="numpad-key numpad-key-6">
+            <rect x="5" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 18.0908 457.5645)" class="st2 st1 st4">6</text>
+        </g>
+        <g class="numpad-key numpad-key-7">
+            <rect x="55" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 67.7158 456.9395)" class="st2 st1 st4">7</text>
+        </g>
     </g>
     <g id="numpad-hermes">
-        <rect x="205" y="280" class="st0" width="40" height="40"/>
-        <rect x="205" y="330" class="st0" width="40" height="40"/>
-        <rect x="205" y="380" class="st0" width="40" height="40"/>
-        <rect x="205" y="430" class="st0" width="40" height="40"/>
-        <rect x="255" y="280" class="st0" width="40" height="40"/>
-        <rect x="255" y="330" class="st0" width="40" height="40"/>
-        <rect x="255" y="380" class="st0" width="40" height="40"/>
-        <rect x="255" y="430" class="st0" width="40" height="40"/>
-        <text transform="matrix(1 0 0 1 218.2158 307.1895)" class="st2 st1 st4">0</text>
-        <text transform="matrix(1 0 0 1 267.8408 307.1895)" class="st2 st1 st4">1</text>
-        <text transform="matrix(1 0 0 1 218.2158 357.5645)" class="st2 st1 st4">2</text>
-        <text transform="matrix(1 0 0 1 267.8408 357.5645)" class="st2 st1 st4">3</text>
-        <text transform="matrix(1 0 0 1 218.2158 407.4395)" class="st2 st1 st4">4</text>
-        <text transform="matrix(1 0 0 1 268.0977 407.4395)" class="st2 st1 st4">5</text>
-        <text transform="matrix(1 0 0 1 218.0908 457.5645)" class="st2 st1 st4">6</text>
-        <text transform="matrix(1 0 0 1 267.7158 456.9395)" class="st2 st1 st4">7</text>
+        <g class="numpad-key numpad-key-0">
+            <rect x="205" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 218.2158 307.1895)" class="st2 st1 st4">0</text>
+        </g>
+        <g class="numpad-key numpad-key-1">
+            <rect x="255" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 267.8408 307.1895)" class="st2 st1 st4">1</text>
+        </g>
+        <g class="numpad-key numpad-key-2">
+            <rect x="205" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 218.2158 357.5645)" class="st2 st1 st4">2</text>
+        </g>
+        <g class="numpad-key numpad-key-3">
+            <rect x="255" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 267.8408 357.5645)" class="st2 st1 st4">3</text>
+        </g>
+        <g class="numpad-key numpad-key-4">
+            <rect x="205" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 218.2158 407.4395)" class="st2 st1 st4">4</text>
+        </g>
+        <g class="numpad-key numpad-key-5">
+            <rect x="255" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 268.0977 407.4395)" class="st2 st1 st4">5</text>
+        </g>
+        <g class="numpad-key numpad-key-6">
+            <rect x="205" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 218.0908 457.5645)" class="st2 st1 st4">6</text>
+        </g>
+        <g class="numpad-key numpad-key-7">
+            <rect x="255" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 267.7158 456.9395)" class="st2 st1 st4">7</text>
+        </g>
+
+
     </g>
     <g id="numpad-pluto">
-        <rect x="405" y="280" class="st0" width="40" height="40"/>
-        <rect x="405" y="330" class="st0" width="40" height="40"/>
-        <rect x="405" y="380" class="st0" width="40" height="40"/>
-        <rect x="405" y="430" class="st0" width="40" height="40"/>
-        <rect x="455" y="280" class="st0" width="40" height="40"/>
-        <rect x="455" y="330" class="st0" width="40" height="40"/>
-        <rect x="455" y="380" class="st0" width="40" height="40"/>
-        <rect x="455" y="430" class="st0" width="40" height="40"/>
-        <text transform="matrix(1 0 0 1 418.2158 307.1895)" class="st2 st1 st4">0</text>
-        <text transform="matrix(1 0 0 1 467.8408 307.1895)" class="st2 st1 st4">1</text>
-        <text transform="matrix(1 0 0 1 418.2158 357.5645)" class="st2 st1 st4">2</text>
-        <text transform="matrix(1 0 0 1 467.8408 357.5645)" class="st2 st1 st4">3</text>
-        <text transform="matrix(1 0 0 1 418.2158 407.4395)" class="st2 st1 st4">4</text>
-        <text transform="matrix(1 0 0 1 468.0977 407.4395)" class="st2 st1 st4">5</text>
-        <text transform="matrix(1 0 0 1 418.0908 457.5645)" class="st2 st1 st4">6</text>
-        <text transform="matrix(1 0 0 1 467.7158 456.9395)" class="st2 st1 st4">7</text>
+        <g class="numpad-key numpad-key-0">
+            <rect x="405" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 418.2158 307.1895)" class="st2 st1 st4">0</text>
+        </g>
+        <g class="numpad-key numpad-key-1">
+            <rect x="455" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 467.8408 307.1895)" class="st2 st1 st4">1</text>
+        </g>
+        <g class="numpad-key numpad-key-2">
+            <rect x="405" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 418.2158 357.5645)" class="st2 st1 st4">2</text>
+        </g>
+        <g class="numpad-key numpad-key-3">
+            <rect x="455" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 467.8408 357.5645)" class="st2 st1 st4">3</text>
+        </g>
+        <g class="numpad-key numpad-key-4">
+            <rect x="405" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 418.2158 407.4395)" class="st2 st1 st4">4</text>
+        </g>
+        <g class="numpad-key numpad-key-5">
+            <rect x="455" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 468.0977 407.4395)" class="st2 st1 st4">5</text>
+        </g>
+        <g class="numpad-key numpad-key-6">
+            <rect x="405" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 418.0908 457.5645)" class="st2 st1 st4">6</text>
+        </g>
+        <g class="numpad-key numpad-key-7">
+            <rect x="455" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 467.7158 456.9395)" class="st2 st1 st4">7</text>
+        </g>
     </g>
     <g id="numpad-vesta">
-        <rect x="605" y="280" class="st0" width="40" height="40"/>
-        <rect x="605" y="330" class="st0" width="40" height="40"/>
-        <rect x="605" y="380" class="st0" width="40" height="40"/>
-        <rect x="605" y="430" class="st0" width="40" height="40"/>
-        <rect x="655" y="280" class="st0" width="40" height="40"/>
-        <rect x="655" y="330" class="st0" width="40" height="40"/>
-        <rect x="655" y="380" class="st0" width="40" height="40"/>
-        <rect x="655" y="430" class="st0" width="40" height="40"/>
-        <text transform="matrix(1 0 0 1 618.2158 307.1895)" class="st2 st1 st4">0</text>
-        <text transform="matrix(1 0 0 1 667.8408 307.1895)" class="st2 st1 st4">1</text>
-        <text transform="matrix(1 0 0 1 618.2158 357.5645)" class="st2 st1 st4">2</text>
-        <text transform="matrix(1 0 0 1 667.8408 357.5645)" class="st2 st1 st4">3</text>
-        <text transform="matrix(1 0 0 1 618.2158 407.4395)" class="st2 st1 st4">4</text>
-        <text transform="matrix(1 0 0 1 668.0977 407.4395)" class="st2 st1 st4">5</text>
-        <text transform="matrix(1 0 0 1 618.0908 457.5645)" class="st2 st1 st4">6</text>
-        <text transform="matrix(1 0 0 1 667.7158 456.9395)" class="st2 st1 st4">7</text>
+        <g class="numpad-key numpad-key-0">
+            <rect x="605" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 618.2158 307.1895)" class="st2 st1 st4">0</text>
+        </g>
+        <g class="numpad-key numpad-key-1">
+            <rect x="655" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 667.8408 307.1895)" class="st2 st1 st4">1</text>
+        </g>
+        <g class="numpad-key numpad-key-2">
+            <rect x="605" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 618.2158 357.5645)" class="st2 st1 st4">2</text>
+        </g>
+        <g class="numpad-key numpad-key-3">
+            <rect x="655" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 667.8408 357.5645)" class="st2 st1 st4">3</text>
+        </g>
+        <g class="numpad-key numpad-key-4">
+            <rect x="605" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 618.2158 407.4395)" class="st2 st1 st4">4</text>
+        </g>
+        <g class="numpad-key numpad-key-5">
+            <rect x="655" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 668.0977 407.4395)" class="st2 st1 st4">5</text>
+        </g>
+        <g class="numpad-key numpad-key-6">
+            <rect x="605" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 618.0908 457.5645)" class="st2 st1 st4">6</text>
+        </g>
+        <g class="numpad-key numpad-key-7">
+            <rect x="655" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 667.7158 456.9395)" class="st2 st1 st4">7</text>
+        </g>
     </g>
     <g id="numpad-minerva">
-        <rect x="805" y="280" class="st0" width="40" height="40"/>
-        <rect x="805" y="330" class="st0" width="40" height="40"/>
-        <rect x="805" y="380" class="st0" width="40" height="40"/>
-        <rect x="805" y="430" class="st0" width="40" height="40"/>
-        <rect x="855" y="280" class="st0" width="40" height="40"/>
-        <rect x="855" y="330" class="st0" width="40" height="40"/>
-        <rect x="855" y="380" class="st0" width="40" height="40"/>
-        <rect x="855" y="430" class="st0" width="40" height="40"/>
-        <text transform="matrix(1 0 0 1 818.2158 307.1895)" class="st2 st1 st4">0</text>
-        <text transform="matrix(1 0 0 1 867.8408 307.1895)" class="st2 st1 st4">1</text>
-        <text transform="matrix(1 0 0 1 818.2158 357.5645)" class="st2 st1 st4">2</text>
-        <text transform="matrix(1 0 0 1 867.8408 357.5645)" class="st2 st1 st4">3</text>
-        <text transform="matrix(1 0 0 1 818.2158 407.4395)" class="st2 st1 st4">4</text>
-        <text transform="matrix(1 0 0 1 868.0977 407.4395)" class="st2 st1 st4">5</text>
-        <text transform="matrix(1 0 0 1 818.0908 457.5645)" class="st2 st1 st4">6</text>
-        <text transform="matrix(1 0 0 1 867.7158 456.9395)" class="st2 st1 st4">7</text>
+        <g class="numpad-key numpad-key-0">
+            <rect x="805" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 818.2158 307.1895)" class="st2 st1 st4">0</text>
+        </g>
+        <g class="numpad-key numpad-key-1">
+            <rect x="855" y="280" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 867.8408 307.1895)" class="st2 st1 st4">1</text>
+        </g>
+        <g class="numpad-key numpad-key-2">
+            <rect x="805" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 818.2158 357.5645)" class="st2 st1 st4">2</text>
+        </g>
+        <g class="numpad-key numpad-key-3">
+            <rect x="855" y="330" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 867.8408 357.5645)" class="st2 st1 st4">3</text>
+        </g>
+        <g class="numpad-key numpad-key-4">
+            <rect x="805" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 818.2158 407.4395)" class="st2 st1 st4">4</text>
+        </g>
+        <g class="numpad-key numpad-key-5">
+            <rect x="855" y="380" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 868.0977 407.4395)" class="st2 st1 st4">5</text>
+        </g>
+        <g class="numpad-key numpad-key-6">
+            <rect x="805" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 818.0908 457.5645)" class="st2 st1 st4">6</text>
+        </g>
+        <g class="numpad-key numpad-key-7">
+            <rect x="855" y="430" width="40" height="40"/>
+            <text transform="matrix(1 0 0 1 867.7158 456.9395)" class="st2 st1 st4">7</text>
+        </g>
     </g>
 </g>
 </svg>

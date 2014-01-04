@@ -31,6 +31,26 @@
     fill: #FFFFFF;
 }
 
+.numpad-key {
+    fill: #A2A2A6;
+    cursor: pointer;
+}
+
+/* Indicates that this key may be chosen/selected */
+.numpad-key-active {
+    fill: #58585A;
+}
+
+/* This key was chosen as a slot time */
+.numpad-key-chosen {
+    fill: #9FEE00;
+}
+
+/* This key was manually selected to be a slot time */
+.numpad-key-selected {
+    fill: #B30000;
+}
+
 .cbl-def {
     fill: #FFFFFF;
 }
