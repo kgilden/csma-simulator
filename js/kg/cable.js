@@ -72,6 +72,13 @@ var kg = window.kg || {};
     };
 
     /**
+     * Clears packets from the cable.
+     */
+    cable.prototype.clear = function clear() {
+        this._packetRx = null;
+    };
+
+    /**
      * Receives a packet for transmitting.
      *
      * @param {Object} packet The packet sent to this cable.

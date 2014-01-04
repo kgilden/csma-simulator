@@ -19,8 +19,8 @@ var kg = window.kg || {};
         deviceNames: ['apollo', 'hermes', 'pluto', 'vesta', 'minerva'],
         deviceClass: '.device',
         cableClass: '.cbl',
-        tickRate: 1,
-        tlgLength: 30
+        tickRate: 5,
+        tlgLength: 100
     };
 
     simulator = function createSimulator(options) {
@@ -33,7 +33,10 @@ var kg = window.kg || {};
 
         // Device setup.
         $devices.each(function addDevicesToSimulator() {
-            simulator.addDevice(new kg.device($(this)));
+            var $element = $(this),
+                $numpad = $('#numpad-' + $element.attr('id'), kg.context);
+
+            simulator.addDevice(new kg.device($element, $numpad));
         });
 
         // Cable setup.
@@ -57,6 +60,31 @@ var kg = window.kg || {};
 
         for (id in cables) cables[id].preTick();
         for (id in components) components[id].tick();
+
+        this.handleCollision();
+    };
+
+    /**
+     * Goes into conflict handling mode, if there is a need.
+     *
+     * http://en.wikipedia.org/wiki/Exponential_backoff
+     * http://en.wikipedia.org/wiki/Carrier_sense_multiple_access_with_collision_avoidance
+     */
+    simulator.prototype.handleCollision = function handleCollision() {
+        var devices = this.getDevices(),
+            components = this.getComponents(),
+            i;
+
+        // First of all, each device must be aware that there has been a conflict.
+        for (i = 0; i < devices.length; i++) {
+            if (!devices[i].isCollision()) {
+                return;
+            }
+        }
+
+        for (i in components) {
+            components[i].clear();
+        }
     };
 
     /**
@@ -77,7 +105,9 @@ var kg = window.kg || {};
      * @returns {Array}
      */
     simulator.prototype.getDevices = function getDevices() {
-        this._devices = this._devices || [];
+        if (!this._devices) {
+            this._devices = [];
+        }
 
         return this._devices;
     };
@@ -94,10 +124,25 @@ var kg = window.kg || {};
         me.getComponents()[device._$element.attr('id')] = device;
 
         device._$element.on('click', function (e) {
-            device.sendTlg(null, me._settings.tlgLength);
+
+            me.clickHandler.call(me, e);
+
         });
 
         return me;
+    };
+
+    simulator.prototype.clickHandler = function clickHandler(e) {
+        var device = this.getComponents()[$(e.currentTarget).attr('id')];
+
+        if (!this._from) {
+            this._from = device;
+
+            return;
+        }
+
+        this._from.sendTlg(device, this._settings.tlgLength);
+        this._from = null;
     };
 
     /**
@@ -106,7 +151,9 @@ var kg = window.kg || {};
      * @returns {Array}
      */
     simulator.prototype.getCables = function getCables() {
-        this._cables = this._cables || [];
+        if (!this._cables) {
+            this._cables = [];
+        }
 
         return this._cables;
     };

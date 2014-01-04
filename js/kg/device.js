@@ -12,8 +12,9 @@ var kg = window.kg || {};
 
     /**
      * @param {null|jQuery} $element
+     * @param {null|jQuery} $numpad
      */
-    var device = function createDevice($element) {
+    var device = function createDevice($element, $numpad) {
         // Visual representation of the device.
         this._$element = null;
 
@@ -29,11 +30,15 @@ var kg = window.kg || {};
         this._connections = [];
 
         // Whether the device received a packet within the previous cycle.
-        this._receivedPacket = false;
+        this._isReceiving = false;
+
+        this._isCleared = true;
 
         if ($element) {
             this.setElement($element);
         }
+
+        this._numpad = new kg.numpad($numpad);
     };
 
     /**
@@ -59,6 +64,11 @@ var kg = window.kg || {};
         this._connections.push(connection);
 
         return this;
+    };
+
+    device.prototype.clear = function clear() {
+        this._isCollision = false;
+        this._isCleared = true;
     };
 
     /**
@@ -87,10 +97,10 @@ var kg = window.kg || {};
      *                     device.
      */
     device.prototype.receivePacket = function receivePacket(packet) {
-        this._receivedPacket = true;
-
         if (packet.isCollision()) {
             this._isCollision = true;
+        } else {
+            this._isReceiving = true;
         }
 
         if (packet.isTo(this)) {
@@ -111,37 +121,44 @@ var kg = window.kg || {};
         if (this._waitTime) {
             this._waitTime--;
 
-            this._receivedPacket = false;
-
             return this;
+        }
+
+        if (this.isReceiving()) {
+            this._isReceiving = false;
+
+            return;
         }
 
         if (tlg = this.getNextTlgForTx()) {
 
             if (this.isTxBlocked()) {
-                // Oh shit, the line is blocked! Better reset the telegram
-                // send count.
                 tlg.sendCount = 0;
-
-                this._failedAttempts += (this._failedAttempts < 7 ? 1 : 0);
-
-                this._waitTime = 10 * Math.round(Math.random() * (Math.pow(2, this._failedAttempts) - 1));
-
-            } else {
-
-                this._failedAttempts = 0;
-
-                sendPacket(this._connections, new kg.packet(this, tlg.target, this));
-                tlg.sendCount++;
-
             }
 
+            if (this.isCollision()) {
+                if (this._isCleared) {
+                    this._isCleared = false;
+                    this._waitTime = 50 * this._numpad.calculateSlotTime();
+
+                    console.log(this._$element.attr('id') + ': wait time is ' + this._waitTime + ' ticks');
+                }
+            } else  {
+                sendPacket(this._connections, new kg.packet(this, tlg.target, this));
+                tlg.sendCount++;
+            }
         }
 
         // Reset the flag for the next cycle.
-        this._receivedPacket = false;
+        //this._isReceiving = false;
 
         return this;
+    };
+
+    device.prototype.updateNumpad = function updateNumpad() {
+        var selector = '.numpad-' + (this._waitTime / 50);
+
+        this._$numpad.find(selector)[0].classList.add('numpad-selected');
     };
 
     device.prototype.getNextTlgForTx = function getNextTlgForTx() {
@@ -154,7 +171,10 @@ var kg = window.kg || {};
             // its packets have been sent, discard it and move on to fetching
             // the next telegram.
             if (tlg.sendCount >= tlg.length) {
+                this._numpad.reset();
                 this._tlgs.shift();
+
+                console.log(this._$element.attr('id') + ': sent to ' + tlg.target._$element.attr('id'));
 
                 continue;
             }
@@ -174,6 +194,15 @@ var kg = window.kg || {};
     };
 
     /**
+     * Whether the device is receiving data.
+     *
+     * @returns {Boolean}
+     */
+    device.prototype.isReceiving = function isReceiving() {
+        return this._isReceiving;
+    };
+
+    /**
      * Whether the device is blocked for transmitting packets. This can happen
      * when there's either a conflict or some other device is transmitting.
      *
@@ -182,7 +211,7 @@ var kg = window.kg || {};
     device.prototype.isTxBlocked = function isTxBlocked() {
         // Either the device received a packet within the previous cycle
         // or there has been a conflict.
-        return this._receivedPacket || this.isCollision();
+        return this.isCollision() || this.isReceiving();
     };
 
     /**
@@ -196,6 +225,31 @@ var kg = window.kg || {};
             connections[i].receivePacket(packet);
         }
     };
+
+    /**
+     * Calculates the next slot time. After `failedAttemptCount` collisions,
+     * a random number of slot times between 0 and 2^failedAttemptCount - 1 is
+     * chosen.
+     *
+     * For the 1st collision, the sender will wait for 0 or 1 slot times. After
+     * the 2nd collision, the sender will wait anywhere from 0 to 3 slot times
+     * (inclusive), and so on.
+     *
+     * After `maxAttemptCount` failed attempts the the delay will not increase
+     * (between 0 and 2^maxAttemptCount - 1).
+     *
+     * @see http://en.wikipedia.org/wiki/Exponential_backoff
+     *
+     * @param {Number} failedAttemptCount Number of failed attempts
+     * @param {Number} maxAttemptCount    Maximum number of failed attempts
+     *
+     * @return {Number}
+     */
+    function calculateSlotTime(failedAttemptCount, maxAttemptCount) {
+        var c = failedAttemptCount > maxAttemptCount ? maxAttemptCount : failedAttemptCount;
+
+        return Math.round(Math.random() * (Math.pow(2, c) - 1));
+    }
 
     kg.device = device;
 
