@@ -29,7 +29,11 @@
 .btn-pause-inactive,
 .btn-pause-active {
     cursor: pointer;
-    fill: #FFF;
+    fill: #F5F5FA;
+}
+
+.btn-box {
+    fill: #F5F5FA;
 }
 
 .btn-pause-inactive:hover > path,
@@ -71,11 +75,11 @@
 }
 
 .device-bg {
-    fill: #9FEE00;
+    fill: #F5F5FA;
 }
 
 .device-screen {
-    fill: #FFFFFF;
+    fill: #F5F5FA;
 }
 
 .numpad-key {
@@ -99,7 +103,7 @@
 }
 
 .cbl-def {
-    fill: #FFFFFF;
+    fill: #F5F5FA;
 }
 
 .cbl-dat {

@@ -16,14 +16,84 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body class="bg">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <object id="js-simulation" data="img/simulation.svg" type="image/svg+xml"></object>
+        <div class="l-centered">
+            <header class="header">
+                <h1 class="header__title">CSMA/CD simulation</h1>
+                <address>By <a href="http://gilden.planet.ee" rel="author">Kristen Gilden</a></address>
+            </header>
+
+            <div class="l-oversized-parent">
+                <object id="js-simulation" class="l-oversized-target simulation" data="img/simulation.svg" type="image/svg+xml"></object>
+            </div>
+
+            <section class="text-section">
+                <h2>Description</h2>
+                <p>
+                    This is a simple simulation of
+                    <abbr title="Carrier Sense Multiple Access With Collision Detection">CSMA/DA</abbr>
+                    on a 5-computer <abbr title="Local Area Network">LAN</abbr>
+                    setup written in JavaScript. The computers can send telegrams
+                    to each other and use <a href="http://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a>
+                    to space out repeated retransmissions of the same block of data.
+                </p>
+
+                <p>
+                    A green block means data, whereas red represents a collision.
+                    Darker grey squares below each computer indicate the possible
+                    slots the computer can choose for retransmitting. Random
+                    choices are indicated by green. Manually chosen slots are
+                    colored dark red.
+                </p>
+
+                <p>
+                    Licenced under <a href="LICENSE">MIT</a>, the full source for
+                    this project can be found at <a href="https://github.com/kgilden/csma-simulator">GitHub</a>.
+                </p>
+            </section>
+            <section>
+                <h2>Instructions</h2>
+                <ul>
+                    <li>
+                        Click on two computers to send a packet from one to the
+                        other;
+                    </li>
+                    <li>
+                        For deterministic slot times click on any of the numbered
+                        buttons. The device above will then always wait until the
+                        given slot time to transmit its telegram. Clicking on the
+                        chosen button again will enable random slot time selection;
+                    </li>
+                    <li>
+                        The simulation can be paused at any time using the button
+                        in the lower left corner. Mouse events won't be disabled
+                        so you could for example issue several transmits and
+                        unpause to synchronise;
+                    </li>
+                    <li>
+                        You can unpause by clicking on the pause button again;
+                    </li>
+                    <li>
+                        FPS can be controlled by clicking on the two arrow buttons
+                        on the lower left corner;
+                    </li>
+                </ul>
+            </section>
+
+            <footer class="footer">
+                <hr />
+                <small>
+                    &copy; 2013 Kristen Gilden, supervised by Rein Paluoja <br />
+                    <a href="http://www.ttu.ee/en/">Tallinn University of Technology</a>
+                </small>
+                <a href="https://github.com/kgilden"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+            </footer>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
