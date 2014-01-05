@@ -1,7 +1,7 @@
 CSMA/CD simulation
 ==================
 
-![preview](https://raw.github.com/kgilden/csma-simulator/master/img/preview.png)
+![preview](img/preview.png)
 
 This is a simple simulation of CSMA/DA on a 5-computer LAN setup written in
 JavaScript. The computers can send telegrams to each other and use exponential
@@ -30,9 +30,8 @@ Instructions
 Running the tests
 -----------------
 
-To run unit tests, you'll need to fire up
-[tests.html](https://raw.github.com/kgilden/csma-simulator/master/tests.html)
-in your favorite web browser.
+To run unit tests, you'll need to fire up [tests.html](tests.html) in your
+favorite web browser.
 
 License
 -------
