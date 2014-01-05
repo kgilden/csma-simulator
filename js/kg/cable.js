@@ -14,9 +14,9 @@ var kg = window.kg || {};
     }
 
     var defaults = {
-        class_default: 'cbl-def',
-        class_data: 'cbl-dat',
-        class_collision: 'cbl-nok'
+        class_default: 'cbl-def-0',
+        class_data: ['cbl-dat-0', 'cbl-dat-1', 'cbl-dat-2', 'cbl-dat-3', 'cbl-dat-4', 'cbl-dat-5'],
+        class_collision: ['cbl-nok-0', 'cbl-nok-1', 'cbl-nok-2', 'cbl-nok-3', 'cbl-nok-4', 'cbl-nok-5']
     };
 
     /**
@@ -162,20 +162,49 @@ var kg = window.kg || {};
             return;
         }
 
-        var classList = $element[0].classList;
+        var classList = $element[0].classList,
+            lastClass = null,
+            newClass;
 
-        // First remove all previous `cbl-*` classes.
+        // First remove all previous relevant classes.
         for (var i in classNames) {
-            classList.remove(classNames[i]);
+            if (!(classNames[i] instanceof Array)) {
+                classNames[i] = [classNames[i]];
+            }
+
+            for (var j in classNames[i]) {
+                if (classList.contains(classNames[i][j])) {
+                    // There should be at most 1 relevant class.
+                    if (lastClass) {
+                        throw 'Mutually exclusive classes detected on an element ("' + lastClass + '" and "' + classNames[i][j] + '").';
+                    }
+
+                    classList.remove(lastClass = classNames[i][j]);
+                }
+            }
         }
 
         // Now, based on the packet type and whether a packet was even sent,
         // decide which class to add.
-        if (!packet) {
-            classList.add(classNames[0]);
+        if (packet) {
+            newClass = packet.isRegular() ? classNames[1] : classNames[2];
+
+            if (newClass instanceof Array) {
+                // If no previous class from the given group is found, the first
+                // class is used. Otherwise the next class will be used. This
+                // causes the illusions of "moving" blocks in the cables when
+                // everything is filled with the same data "type" (e.g. collision).
+                newClass = newClass.indexOf(lastClass) < 0
+                         ? newClass[0]
+                         : newClass[(newClass.indexOf(lastClass) + 1) % newClass.length];
+            }
+
         } else {
-            classList.add(packet.isRegular() ? classNames[1] : classNames[2]);
+            newClass = classNames[0];
         }
+
+
+        classList.add(newClass);
     }
 
     /**

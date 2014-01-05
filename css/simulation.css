@@ -102,14 +102,21 @@
     fill: #B30000;
 }
 
-.cbl-def {
-    fill: #F5F5FA;
-}
+/* Default color. */
+.cbl-def-0 { fill: none; }
 
-.cbl-dat {
-    fill: #9FEE00;
-}
+/* Data flowing through the cables. */
+.cbl-dat-0 { fill: #9FEE00; }
+.cbl-dat-1 { fill: #96E000; }
+.cbl-dat-2 { fill: #8DD400; }
+.cbl-dat-3 { fill: #85C700; }
+.cbl-dat-4 { fill: #8DD400; }
+.cbl-dat-5 { fill: #96E000; }
 
-.cbl-nok {
-    fill: #FF0000;
-}
+/* Collision flowing through the cables. */
+.cbl-nok-0 { fill: #FF0000; }
+.cbl-nok-1 { fill: #E60000; }
+.cbl-nok-2 { fill: #CC0000; }
+.cbl-nok-3 { fill: #B30000; }
+.cbl-nok-4 { fill: #CC0000; }
+.cbl-nok-5 { fill: #E60000; }
