@@ -103,13 +103,17 @@ var kg = window.kg || {};
         if (this._intervalId === null) {
             this.startSimulation();
 
-            removeClass($btn, this._settings.btnPauseActive);
-            addClass($btn, this._settings.btnPauseInactive);
+            $btn
+                .removeClass(this._settings.btnPauseActive)
+                .addClass(this._settings.btnPauseInactive)
+            ;
         } else {
             this.stopSimulation();
 
-            removeClass($btn, this._settings.btnPauseInactive);
-            addClass($btn, this._settings.btnPauseActive);
+            $btn
+                .removeClass(this._settings.btnPauseInactive)
+                .addClass(this._settings.btnPauseActive)
+            ;
         }
     };
 
@@ -350,30 +354,6 @@ var kg = window.kg || {};
         }
 
         return relatedIds;
-    }
-
-    /**
-     * Adds a class to the elements.
-     *
-     * @param {jQuery} $elements
-     * @param {String} className
-     */
-    function addClass($elements, className) {
-        $elements.each(function () {
-            this.classList.add(className);
-        });
-    }
-
-    /**
-     * Removes a class from the elements.
-     *
-     * @param {jQuery} $elements
-     * @param {String} className
-     */
-    function removeClass($elements, className) {
-        $elements.each(function () {
-            this.classList.remove(className);
-        });
     }
 
     kg.simulator = simulator;

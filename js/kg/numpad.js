@@ -113,10 +113,10 @@ var kg = window.kg || {};
         var $allKeys = this.getKeys(),
             class_chosen = this._settings.class_chosen;
 
-        removeClass($allKeys, class_chosen);
+        $allKeys.removeClass(class_chosen);
 
         if (null !== n) {
-            addClass($allKeys.slice(n, n + 1), class_chosen);
+            $allKeys.slice(n, n + 1).addClass(class_chosen);
         }
     };
 
@@ -131,13 +131,13 @@ var kg = window.kg || {};
             $selectedKey = $allKeys.slice(n, n + 1),
             class_selected = this._settings.class_selected;
 
-        if (hasClass($selectedKey, class_selected)) {
-            removeClass($allKeys, class_selected);
+        if ($selectedKey.hasClass(class_selected)) {
+            $allKeys.removeClass(class_selected);
 
             this._manualSlotTime = null;
         } else {
-            removeClass($allKeys, class_selected);
-            addClass($selectedKey, class_selected);
+            $allKeys.removeClass(class_selected);
+            $selectedKey.addClass(class_selected);
 
             this._manualSlotTime = n;
         }
@@ -152,10 +152,10 @@ var kg = window.kg || {};
         var $allKeys = this.getKeys();
 
         // First off, mark all keys inactive.
-        removeClass($allKeys, this._settings.class_active);
+        $allKeys.removeClass(this._settings.class_active);
 
         // Then mark only the first n keys active.
-        addClass($allKeys.slice(0, n), this._settings.class_active);
+        $allKeys.slice(0, n).addClass(this._settings.class_active);
     };
 
     /**
@@ -166,49 +166,6 @@ var kg = window.kg || {};
     numpad.prototype.getKeys = function getKeys() {
         return this._$numpad.find('.' + this._settings.class_key);
     };
-
-    /**
-     * @param {jQuery} $element
-     * @param {String} className
-     *
-     * @returns {Boolean} Whether the 1st element has the specified class
-     */
-    function hasClass($element, className) {
-        var classList = $element[0].classList,
-            i = null;
-
-        for (i in classList) {
-            if (classList[i] === className) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Adds a class to the elements.
-     *
-     * @param {jQuery} $elements
-     * @param {String} className
-     */
-    function addClass($elements, className) {
-        $elements.each(function () {
-            this.classList.add(className);
-        });
-    }
-
-    /**
-     * Removes a class from the elements.
-     *
-     * @param {jQuery} $elements
-     * @param {String} className
-     */
-    function removeClass($elements, className) {
-        $elements.each(function () {
-            this.classList.remove(className);
-        });
-    }
 
     /**
      * Registers all the necessary listeners. This function must be called
