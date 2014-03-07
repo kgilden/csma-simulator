@@ -89,7 +89,7 @@ var kg = window.kg || {};
             slotTime = this._manualSlotTime;
         }
 
-        this.markActive(maxSlotTime = Math.pow(2, c));
+        this.markActive(maxSlotTime);
         this.markChosen(slotTime);
 
         return slotTime;
