@@ -11,10 +11,13 @@ var kg = window.kg || {};
     }
 
     /**
-     * @param {null|jQuery} $element
-     * @param {null|jQuery} $numpad
+     * @param {kg.tlgBuilder} tlgBuilder
+     * @param {null|jQuery}   $element
+     * @param {null|jQuery}   $numpad
      */
-    var device = function createDevice($element, $numpad) {
+    var device = function createDevice(tlgBuilder, $element, $numpad) {
+        this._tlgBuilder = tlgBuilder;
+
         // Visual representation of the device.
         this._$element = null;
 
@@ -68,14 +71,9 @@ var kg = window.kg || {};
      * Sends a telegram to a device.
      *
      * @param {kg.device} target The target device
-     * @param {String}    length Length of the telegram
      */
-    device.prototype.sendTlg = function sendTlg(target, length) {
-        this._tlgs.push({
-            target: target,
-            length: length,
-            sendCount: 0
-        });
+    device.prototype.sendTlg = function sendTlg(target) {
+        this._tlgs.push(this._tlgBuilder.create(this, target));
 
         return this;
     };

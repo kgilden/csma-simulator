@@ -33,7 +33,8 @@ var kg = window.kg || {};
         var settings = $.extend({}, defaults, options),
             $devices = $(settings.deviceClass, kg.context),
             $cables = $(settings.cableClass, kg.context),
-            simulator = this;
+            simulator = this,
+            tlgBuilder = new kg.tlgBuilder(settings.tlgLength);
 
         this._settings = settings;
 
@@ -47,7 +48,7 @@ var kg = window.kg || {};
             var $element = $(this),
                 $numpad = $('#numpad-' + $element.attr('id'), kg.context);
 
-            simulator.addDevice(new kg.device($element, $numpad));
+            simulator.addDevice(new kg.device(tlgBuilder, $element, $numpad));
         });
 
         // Cable setup.
@@ -283,7 +284,7 @@ var kg = window.kg || {};
             return;
         }
 
-        this._from.sendTlg(device, this._settings.tlgLength);
+        this._from.sendTlg(device);
         this._from = null;
     };
 
