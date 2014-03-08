@@ -54,8 +54,8 @@ var kg = window.kg || {};
         connectComponents(simulator);
 
         // Event handler for (un)pausing the simulation.
-        $(this._settings.btnPause, kg.context).on('click', function callToggleSimulation(e) {
-            simulator.toggleSimulation(e);
+        $(this._settings.btnPause, kg.context).on('click', function callToggle(e) {
+            simulator.toggle();
         });
 
         // Event handler for increasing the simulation speed.
@@ -71,49 +71,47 @@ var kg = window.kg || {};
         simulator.updateFpsTxt(this._settings.tickRate);
 
         // Start the simulation.
-        simulator.startSimulation();
+        simulator.play();
     };
 
     /**
      * Starts the simulation.
      */
-    simulator.prototype.startSimulation = function startSimulation() {
+    simulator.prototype.play = function play() {
         this._intervalId = setInterval(function callTickHandler(simulator) {
             simulator.tickHandler.call(simulator);
         }, 1000 / this._settings.tickRate, this);
+
+        $(this._settings.btnPause, kg.context)
+            .removeClass(this._settings.btnPauseActive)
+            .addClass(this._settings.btnPauseInactive)
+        ;
     };
 
     /**
      * Stops the simulation.
      */
-    simulator.prototype.stopSimulation = function stopSimulation() {
+    simulator.prototype.pause = function pause() {
         if (this._intervalId !== null) {
             clearInterval(this._intervalId);
 
             this._intervalId = null;
         }
+
+        $(this._settings.btnPause, kg.context)
+            .removeClass(this._settings.btnPauseInactive)
+            .addClass(this._settings.btnPauseActive)
+        ;
     };
 
     /**
      * Toggles the simulation (paused vs playing).
      */
-    simulator.prototype.toggleSimulation = function toggleSimulation(e) {
-        var $btn = $(e.currentTarget);
-
-        if (this._intervalId === null) {
-            this.startSimulation();
-
-            $btn
-                .removeClass(this._settings.btnPauseActive)
-                .addClass(this._settings.btnPauseInactive)
-            ;
+    simulator.prototype.toggle = function toggle() {
+        if (this._intervalId) {
+            this.pause();
         } else {
-            this.stopSimulation();
-
-            $btn
-                .removeClass(this._settings.btnPauseInactive)
-                .addClass(this._settings.btnPauseActive)
-            ;
+            this.play();
         }
     };
 
@@ -146,8 +144,8 @@ var kg = window.kg || {};
 
         // Restarts only if it's already running as to not unintentionally unpause.
         if (this._intervalId) {
-            this.stopSimulation();
-            this.startSimulation();
+            this.pause();
+            this.play();
         }
     };
 
