@@ -20,18 +20,26 @@
 }
 
 .txt-retry-count {
-    font-family: 'Arial';
-    font-weight: bold;
-    font-size: 24px;
-    fill: #58585A;
     text-anchor: middle;
 }
 
-.txt-fps {
+.txt-tlg-long,
+.txt-tlg-short {
+    cursor: pointer;
+}
+
+.txt-fps,
+.txt-retry-count,
+.txt-tlg-long,
+.txt-tlg-short {
     font-family: 'Arial';
     font-weight: bold;
     font-size: 24px;
     fill: #58585A;
+}
+
+.txt-tlg-active {
+    fill: #9FEE00;
 }
 
 .btn-pause-inactive,

@@ -28,6 +28,8 @@
             C64.493,509.224,64.466,510.5,65.806,511.282z"/>
     </g>
     <text class="txt-fps" transform="matrix(1 0 0 1 166.5005 517.0442)"></text>
+    <text class="txt-tlg-long txt-tlg-active" transform="matrix(1 0 0 1 250 517.0442)">Long telegram</text>
+    <text class="txt-tlg-short" transform="matrix(1 0 0 1 450 517.0442)">Short telegram</text>
 </g>
 <g id="text">
     <text transform="matrix(1 0 0 1 16.6489 26.4019)" class="st0 st3 st4">apollo</text>

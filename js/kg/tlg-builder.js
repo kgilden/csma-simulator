@@ -47,6 +47,13 @@ var kg = window.kg || {};
     }
 
     /**
+     * @param {Integer} tlgLength
+     */
+    builder.prototype.setTlgLength = function setTlgLength(tlgLength) {
+        this._tlgLength = tlgLength;
+    };
+
+    /**
      * Gets the next color in line.
      *
      * @return {String}

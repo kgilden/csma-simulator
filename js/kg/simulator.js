@@ -23,10 +23,13 @@ var kg = window.kg || {};
         btnPauseInactive: 'btn-pause-inactive',
         btnSpeedIncrease: '.btn-speed-increase',
         btnSpeedDecrease: '.btn-speed-decrease',
+        btnTlgShort: '.txt-tlg-short',
+        btnTlgLong: '.txt-tlg-long',
         txtFps: '.txt-fps',
         cableClass: '.cbl',
         tickRate: 4,
-        tlgLength: 100
+        shortTlgLength: 15,
+        longTlgLength: 100
     };
 
     simulator = function createSimulator(options) {
@@ -34,9 +37,11 @@ var kg = window.kg || {};
             $devices = $(settings.deviceClass, kg.context),
             $cables = $(settings.cableClass, kg.context),
             simulator = this,
-            tlgBuilder = new kg.tlgBuilder(settings.tlgLength);
+            tlgBuilder = new kg.tlgBuilder(settings.longTlgLength);
 
         this._settings = settings;
+
+        this._tlgBuilder = tlgBuilder;
 
         // Whether all the devices are in collision mode. In that case the
         // system should pause to let the user decide whether he would like
@@ -58,6 +63,16 @@ var kg = window.kg || {};
 
         // Hook up devices and cables.
         connectComponents(simulator);
+
+        // Event handler for toggling the short telegram on.
+        $(this._settings.btnTlgShort, kg.context).on('click', function callUseShortTlgs(e) {
+            simulator.useShortTlgs();
+        });
+
+        // Event handler for toggling the long telegram on.
+        $(this._settings.btnTlgLong, kg.context).on('click', function callUseLongTlgs(e) {
+            simulator.useLongTlgs();
+        });
 
         // Event handler for (un)pausing the simulation.
         $(this._settings.btnPause, kg.context).on('click', function callToggle(e) {
@@ -311,6 +326,27 @@ var kg = window.kg || {};
         this.getComponents()[cable._$element.attr('id')] = cable;
 
         return this;
+    };
+
+    /**
+     * Makes the simulator start using short packets. This way the transmitting
+     * device may incorrectly think a packet was successfully transmitted.
+     */
+    simulator.prototype.useShortTlgs = function useShortTlgs() {
+        this._tlgBuilder.setTlgLength(this._settings.shortTlgLength);
+
+        $(this._settings.btnTlgShort, kg.context).addClass('txt-tlg-active');
+        $(this._settings.btnTlgLong, kg.context).removeClass('txt-tlg-active');
+    };
+
+    /**
+     * Makes the simulator start using long packets.
+     */
+    simulator.prototype.useLongTlgs = function useLongTlgs() {
+        this._tlgBuilder.setTlgLength(this._settings.longTlgLength);
+
+        $(this._settings.btnTlgLong, kg.context).addClass('txt-tlg-active');
+        $(this._settings.btnTlgShort, kg.context).removeClass('txt-tlg-active');
     };
 
     /**
