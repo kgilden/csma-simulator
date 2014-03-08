@@ -72,8 +72,8 @@ var kg = window.kg || {};
      *
      * @param {kg.device} target The target device
      */
-    device.prototype.sendTlg = function sendTlg(target) {
-        this._tlgs.push(this._tlgBuilder.create(this, target));
+    device.prototype.sendTlg = function sendTlg(to) {
+        this._tlgs.push(this._tlgBuilder.create(this, to));
 
         return this;
     };
@@ -126,7 +126,7 @@ var kg = window.kg || {};
             if (this.isTxBlocked()) {
                 tlg.sendCount = 0;
             } else {
-                sendPacket(this._connections, new kg.packet(this, tlg.target, this));
+                sendPacket(this._connections, new kg.packet(this, tlg.to, this));
                 tlg.sendCount++;
             }
         }
@@ -179,7 +179,7 @@ var kg = window.kg || {};
                 this._numpad.reset();
                 this._tlgs.shift();
 
-                console.log(this._$element.attr('id') + ': sent to ' + tlg.target._$element.attr('id'));
+                console.log(this._$element.attr('id') + ': sent to ' + tlg.to._$element.attr('id'));
 
                 continue;
             }

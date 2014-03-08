@@ -31,7 +31,7 @@ var kg = window.kg || {};
      */
     builder.prototype.create = function createTlg(from, to) {
         return {
-            target: to,
+            to: to,
             length: this._tlgLength,
             sendCount: 0
         };
