@@ -132,6 +132,7 @@ var kg = window.kg || {};
             }
         } else {
             changeColor.call(this, null);
+            updateRetryCount.call(this, 0);
         }
 
         return this;
@@ -159,6 +160,8 @@ var kg = window.kg || {};
         }
 
         this._waitTime = 50 * this._numpad.calculateSlotTime();
+
+        updateRetryCount.call(this, this._numpad.getFailedAttemptCount());
 
         console.log(this._$element.attr('id') + ': wait time is ' + this._waitTime + ' ticks');
     };
@@ -253,37 +256,31 @@ var kg = window.kg || {};
     };
 
     /**
-     * Calculates the next slot time. After `failedAttemptCount` collisions,
-     * a random number of slot times between 0 and 2^failedAttemptCount - 1 is
-     * chosen.
-     *
-     * For the 1st collision, the sender will wait for 0 or 1 slot times. After
-     * the 2nd collision, the sender will wait anywhere from 0 to 3 slot times
-     * (inclusive), and so on.
-     *
-     * After `maxAttemptCount` failed attempts the the delay will not increase
-     * (between 0 and 2^maxAttemptCount - 1).
-     *
-     * @see http://en.wikipedia.org/wiki/Exponential_backoff
-     *
-     * @param {Number} failedAttemptCount Number of failed attempts
-     * @param {Number} maxAttemptCount    Maximum number of failed attempts
-     *
-     * @return {Number}
-     */
-    function calculateSlotTime(failedAttemptCount, maxAttemptCount) {
-        var c = failedAttemptCount > maxAttemptCount ? maxAttemptCount : failedAttemptCount;
-
-        return Math.round(Math.random() * (Math.pow(2, c) - 1));
-    }
-
-    /**
      * Changes the color of a device.
      *
      * @param {String} color
      */
     function changeColor(color) {
         this._$element.find('g').children().css('fill', color ? color : '');
+    }
+
+    /**
+     * Updates the retry count of a device (the number of device a single
+     * packet has been attempted to transmit).
+     *
+     * @param {Integer} retryCount
+     */
+    function updateRetryCount(retryCount)
+    {
+        if (!this._$element) {
+            console.log('missing an element:');
+            console.log(this);
+            return;
+        }
+
+        // jQuery can't find elements by their class names in SVG-s so we
+        // have to fall back to using element names.
+        this._$element.find('text').text(retryCount);
     }
 
     kg.device = device;

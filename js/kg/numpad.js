@@ -168,6 +168,16 @@ var kg = window.kg || {};
     };
 
     /**
+     * Gets the number of times this particular numpad (well, actually device)
+     * has failed to transmit.
+     *
+     * @return {Integer}
+     */
+    numpad.prototype.getFailedAttemptCount = function getFailedAttemptCount() {
+        return this._failedAttemptCount;
+    };
+
+    /**
      * Registers all the necessary listeners. This function must be called
      * like `registerListeners.call()` so that `this` would point to the numpad.
      */
