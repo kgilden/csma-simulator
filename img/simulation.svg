@@ -39,8 +39,9 @@
 <g id="devices">
     <g id="apollo" class="device rel-c1">
         <rect class="device-bg" x="0" y="40" width="140" height="100" />
+        <rect class="device-screen" x="20" y="55" width="60" height="47" />
+
         <g>
-            <rect class="device-screen" x="20" y="55" width="60" height="47" />
             <path class="st0" d="M84,56c0-1.657-1.343-3-3-3H19c-1.657,0-3,1.343-3,3v50c0,1.657,1.343,3,3,3h62c1.657,0,3-1.343,3-3V56z
                  M50.125,107.375c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2S51.229,107.375,50.125,107.375z M78,100c0,1.104-0.896,2-2,2H24
                 c-1.104,0-2-0.896-2-2V61c0-1.104,0.896-2,2-2h52c1.104,0,2,0.896,2,2V100z"/>
@@ -52,9 +53,10 @@
     </g>
     <g id="hermes" class="device rel-c6">
         <rect class="device-bg" x="160" y="40" width="180" height="100" />
+        <rect class="device-screen" x="195" y="60" width="65" height="45" />
+
         <g>
             <!-- monitor -->
-            <rect class="device-screen" x="195" y="60" width="65" height="45" />
             <path class="st0" d="M222,115v2c-0.129,1.676-1.541,3-3.25,3H213c-1.656,0-3,1.343-3,3h32c0-1.657-1.344-3-3-3h-5.75
                 c-1.709,0-3.121-1.324-3.25-3v-2H222z"/>
             <rect x="210" y="124" class="st0" width="32" height="3"/>
@@ -74,9 +76,10 @@
     </g>
     <g id="pluto" class="device rel-c11">
         <rect class="device-bg" x="360" y="40" width="180" height="100" />
+        <rect class="device-screen" x="420" y="55" width="60" height="42" />
+
         <g>
             <!-- monitor -->
-            <rect class="device-screen" x="420" y="55" width="60" height="42" />
             <path class="st0" d="M421,107h60c1.656,0,3-1.343,3-3V54c0-1.657-1.344-3-3-3h-60c-1.656,0-3,1.343-3,3v50
                 C418,105.657,419.344,107,421,107z M451.334,105.168c-1.657,0-3-1.343-3-3s1.343-3,3-3c1.656,0,3,1.343,3,3
                 S452.99,105.168,451.334,105.168z M424,59c0-1.104,0.896-2,2-2h50c1.104,0,2,0.896,2,2v36c0,1.104-0.896,2-2,2h-50
@@ -95,8 +98,9 @@
     </g>
     <g id="vesta" class="device rel-c16">
         <rect class="device-bg" x="560" y="40" width="180" height="100" />
+        <rect class="device-screen" x="620" y="55" width="60" height="48" />
+
         <g>
-            <rect class="device-screen" x="620" y="55" width="60" height="48" />
             <path class="st0" d="M683,56c0-1.657-1.344-3-3-3h-62c-1.656,0-3,1.343-3,3v50c0,1.657,1.344,3,3,3h62c1.656,0,3-1.343,3-3V56z
                  M649.125,107.375c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2S650.229,107.375,649.125,107.375z M677,100c0,1.104-0.896,2-2,2
                 h-52c-1.104,0-2-0.896-2-2V61c0-1.104,0.896-2,2-2h52c1.104,0,2,0.896,2,2V100z"/>
@@ -108,9 +112,10 @@
     </g>
     <g id="minerva" class="device rel-c21">
         <rect class="device-bg" x="760" y="40" width="140" height="100" />
+        <rect class="device-screen" x="815" y="55" width="60" height="42" />
+
         <g>
             <!-- screen -->
-            <rect class="device-screen" x="815" y="55" width="60" height="42" />
             <path class="st0" d="M816,106h60c1.656,0,3-1.343,3-3V53c0-1.657-1.344-3-3-3h-60c-1.656,0-3,1.343-3,3v50
                 C813,104.657,814.344,106,816,106z M846.334,104.168c-1.657,0-3-1.343-3-3s1.343-3,3-3c1.656,0,3,1.343,3,3
                 S847.99,104.168,846.334,104.168z M819,58c0-1.104,0.896-2,2-2h50c1.104,0,2,0.896,2,2v36c0,1.104-0.896,2-2,2h-50

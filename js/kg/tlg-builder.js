@@ -19,6 +19,13 @@ var kg = window.kg || {};
      */
     var builder = function createBuilder(tlgLength) {
         this._tlgLength = tlgLength;
+        this._colors = [
+            '#85C700',
+            '#C7C400',
+            '#0000C7',
+            '#C700C7',
+            '#00C7C7'
+        ]
     };
 
     /**
@@ -31,10 +38,25 @@ var kg = window.kg || {};
      */
     builder.prototype.create = function createTlg(from, to) {
         return {
+            from: from,
             to: to,
             length: this._tlgLength,
-            sendCount: 0
+            sendCount: 0,
+            color: getNextColor.call(this)
         };
+    }
+
+    /**
+     * Gets the next color in line.
+     *
+     * @return {String}
+     */
+    function getNextColor() {
+        var color;
+
+        this._colors.push(color = this._colors.shift());
+
+        return color;
     }
 
     kg.tlgBuilder = builder;

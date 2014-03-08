@@ -14,9 +14,7 @@ var kg = window.kg || {};
     }
 
     var defaults = {
-        class_default: 'cbl-def-0',
-        class_data: ['cbl-dat-0', 'cbl-dat-1', 'cbl-dat-2', 'cbl-dat-3', 'cbl-dat-4', 'cbl-dat-5'],
-        class_collision: ['cbl-nok-0', 'cbl-nok-1', 'cbl-nok-2', 'cbl-nok-3', 'cbl-nok-4', 'cbl-nok-5']
+        class_empty: 'cbl-empty',
     };
 
     /**
@@ -132,11 +130,7 @@ var kg = window.kg || {};
      * Orders the cable to simulate a clock tick.
      */
     cable.prototype.tick = function updateAndTransmitPacket() {
-        updateElement(this._$element, this._packetTx, [
-            this._settings.class_default,
-            this._settings.class_data,
-            this._settings.class_collision
-        ]);
+        updateElement(this._$element, this._packetTx, this._settings.class_empty);
 
         if (!this._packetTx) {
             return this;
@@ -153,58 +147,34 @@ var kg = window.kg || {};
      * Updates the dom element to reflect the current state of this piece
      * of cable based on the packet.
      *
-     * @param {jQuery|null} $element   The target element
-     * @param {Object}      packet     The packet to be used
-     * @param {Array}       classNames List of used class names
+     * @param {jQuery|null} $element     The target element
+     * @param {kg.packet}   packet       The packet to be used
+     * @param {String}      classIfEmpty The class to add if the cable is empty
      */
-    function updateElement($element, packet, classNames) {
+    function updateElement($element, packet, classIfEmpty) {
         if (!$element) {
             return;
         }
 
         var classList = $element[0].classList,
-            lastClass = null,
-            newClass;
+            currentColor = $element.css('fill');
 
-        // First remove all previous relevant classes.
-        for (var i in classNames) {
-            if (!(classNames[i] instanceof Array)) {
-                classNames[i] = [classNames[i]];
-            }
+        if (!packet) {
+            classList.add(classIfEmpty);
+            $element.css('fill', '');
 
-            for (var j in classNames[i]) {
-                if (classList.contains(classNames[i][j])) {
-                    // There should be at most 1 relevant class.
-                    if (lastClass) {
-                        throw 'Mutually exclusive classes detected on an element ("' + lastClass + '" and "' + classNames[i][j] + '").';
-                    }
-
-                    classList.remove(lastClass = classNames[i][j]);
-                }
-            }
+            return;
         }
 
-        // Now, based on the packet type and whether a packet was even sent,
-        // decide which class to add.
-        if (packet) {
-            newClass = packet.isRegular() ? classNames[1] : classNames[2];
+        classList.remove(classIfEmpty);
 
-            if (newClass instanceof Array) {
-                // If no previous class from the given group is found, the first
-                // class is used. Otherwise the next class will be used. This
-                // causes the illusions of "moving" blocks in the cables when
-                // everything is filled with the same data "type" (e.g. collision).
-                newClass = newClass.indexOf(lastClass) < 0
-                         ? newClass[0]
-                         : newClass[(newClass.indexOf(lastClass) + 1) % newClass.length];
-            }
+        var colorVariations = packet.getColorVariations(),
+            index;
 
-        } else {
-            newClass = classNames[0];
-        }
+        index = colorVariations.indexOf(currentColor);
+        index = index < 0 ? 0 : (index + 1) % colorVariations.length;
 
-
-        classList.add(newClass);
+        $element.css('fill', colorVariations[index]);
     }
 
     /**

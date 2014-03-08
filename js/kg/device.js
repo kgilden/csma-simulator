@@ -95,7 +95,7 @@ var kg = window.kg || {};
         }
 
         if (packet.isTo(this)) {
-
+            changeColor.call(this, packet.getColor());
             return true;
         }
 
@@ -126,9 +126,12 @@ var kg = window.kg || {};
             if (this.isTxBlocked()) {
                 tlg.sendCount = 0;
             } else {
-                sendPacket(this._connections, new kg.packet(this, tlg.to, this));
+                changeColor.call(this, tlg.color);
+                sendPacket(this._connections, new kg.packet(this, tlg.to, this, tlg.color));
                 tlg.sendCount++;
             }
+        } else {
+            changeColor.call(this, null);
         }
 
         return this;
@@ -272,6 +275,15 @@ var kg = window.kg || {};
         var c = failedAttemptCount > maxAttemptCount ? maxAttemptCount : failedAttemptCount;
 
         return Math.round(Math.random() * (Math.pow(2, c) - 1));
+    }
+
+    /**
+     * Changes the color of a device.
+     *
+     * @param {String} color
+     */
+    function changeColor(color) {
+        this._$element.find('g').children().css('fill', color ? color : '');
     }
 
     kg.device = device;

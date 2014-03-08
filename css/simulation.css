@@ -103,7 +103,7 @@
 }
 
 /* Default color. */
-.cbl-def-0 { fill: none; }
+.cbl-empty { fill: none; }
 
 /* Data flowing through the cables. */
 .cbl-dat-0 { fill: #9FEE00; }
