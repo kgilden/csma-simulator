@@ -37,6 +37,11 @@ var kg = window.kg || {};
 
         this._settings = settings;
 
+        // Whether all the devices are in collision mode. In that case the
+        // system should pause to let the user decide whether he would like
+        // to manually choose slot times or let the simulator take care of it.
+        this._collisionFound = false;
+
         // Device setup.
         $devices.each(function addDevicesToSimulator() {
             var $element = $(this),
@@ -203,6 +208,16 @@ var kg = window.kg || {};
             }
         }
 
+        // Pause the simulation right after the collision has reached to all
+        // of the devices. This way the user can decide what to do.
+        if (!this._collisionFound) {
+            this._collisionFound = true;
+
+            this.pause();
+
+            return;
+        }
+
         for (i in cables) {
             cables[i].clear();
         }
@@ -210,6 +225,8 @@ var kg = window.kg || {};
         for (i in devices) {
             devices[i].handleCollision();
         }
+
+        this._collisionFound = false;
     };
 
     /**
