@@ -32,8 +32,6 @@ var kg = window.kg || {};
         // Whether the device received a packet within the previous cycle.
         this._isReceiving = false;
 
-        this._isCleared = true;
-
         if ($element) {
             this.setElement($element);
         }
@@ -64,11 +62,6 @@ var kg = window.kg || {};
         this._connections.push(connection);
 
         return this;
-    };
-
-    device.prototype.clear = function clear() {
-        this._isCollision = false;
-        this._isCleared = true;
     };
 
     /**
@@ -127,32 +120,46 @@ var kg = window.kg || {};
         if (this.isReceiving()) {
             this._isReceiving = false;
 
-            return;
+            return this;
         }
 
         if (tlg = this.getNextTlgForTx()) {
 
             if (this.isTxBlocked()) {
                 tlg.sendCount = 0;
-            }
-
-            if (this.isCollision()) {
-                if (this._isCleared) {
-                    this._isCleared = false;
-                    this._waitTime = 50 * this._numpad.calculateSlotTime();
-
-                    console.log(this._$element.attr('id') + ': wait time is ' + this._waitTime + ' ticks');
-                }
-            } else  {
+            } else {
                 sendPacket(this._connections, new kg.packet(this, tlg.target, this));
                 tlg.sendCount++;
             }
         }
 
-        // Reset the flag for the next cycle.
-        //this._isReceiving = false;
-
         return this;
+    };
+
+    /**
+     * Resolves an occurred collison by waiting for a random amount of time
+     * until retransmitting. Waiting is triggered only if this device is
+     * actually in the middle of transmitting and is not already waiting
+     * for a slot time.
+     */
+    device.prototype.handleCollision = function handleCollision() {
+        this._isCollision = false;
+
+        // If the device is waiting for its slot time, it shouldn't be
+        // pariticipating in the current conflict resolving.
+        if (this.isWaiting()) {
+            return;
+        }
+
+        // The device is not sending any telegrams at the moment. Thus, it
+        // shouldn't take part in the current conflict resolving.
+        if (!this.isSending()) {
+            return;
+        }
+
+        this._waitTime = 50 * this._numpad.calculateSlotTime();
+
+        console.log(this._$element.attr('id') + ': wait time is ' + this._waitTime + ' ticks');
     };
 
     device.prototype.updateNumpad = function updateNumpad() {
@@ -212,6 +219,24 @@ var kg = window.kg || {};
         // Either the device received a packet within the previous cycle
         // or there has been a conflict.
         return this.isCollision() || this.isReceiving();
+    };
+
+    /**
+     * Whether the current device is sending packets.
+     *
+     * @return {Boolean}
+     */
+    device.prototype.isSending = function isSending() {
+        return this._tlgs.length > 0;
+    };
+
+    /**
+     * Whether the current device is waiting for its time slot to transmit.
+     *
+     * @return {Boolean}
+     */
+    device.prototype.isWaiting = function isWaiting() {
+        return this._waitTime > 0;
     };
 
     /**

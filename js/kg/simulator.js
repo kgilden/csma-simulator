@@ -195,7 +195,7 @@ var kg = window.kg || {};
      */
     simulator.prototype.handleCollision = function handleCollision() {
         var devices = this.getDevices(),
-            components = this.getComponents(),
+            cables  = this.getCables(),
             i;
 
         // First of all, each device must be aware that there has been a conflict.
@@ -205,8 +205,12 @@ var kg = window.kg || {};
             }
         }
 
-        for (i in components) {
-            components[i].clear();
+        for (i in cables) {
+            cables[i].clear();
+        }
+
+        for (i in devices) {
+            devices[i].handleCollision();
         }
     };
 
