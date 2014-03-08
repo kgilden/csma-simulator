@@ -272,15 +272,7 @@ var kg = window.kg || {};
      */
     function updateRetryCount(retryCount)
     {
-        if (!this._$element) {
-            console.log('missing an element:');
-            console.log(this);
-            return;
-        }
-
-        // jQuery can't find elements by their class names in SVG-s so we
-        // have to fall back to using element names.
-        this._$element.find('text').text(retryCount);
+        this._$element.find('.txt-retry-count').text(retryCount);
     }
 
     kg.device = device;
