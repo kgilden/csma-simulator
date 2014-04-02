@@ -163,6 +163,8 @@ var kg = window.kg || {};
 
         updateRetryCount.call(this, this._numpad.getFailedAttemptCount());
 
+        this._numpad.toggleSelected(null);
+
         console.log(this._$element.attr('id') + ': wait time is ' + this._waitTime + ' ticks');
     };
 

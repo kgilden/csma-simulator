@@ -131,7 +131,7 @@ var kg = window.kg || {};
             $selectedKey = $allKeys.slice(n, n + 1),
             class_selected = this._settings.class_selected;
 
-        if ($selectedKey.hasClass(class_selected)) {
+        if (null === n || $selectedKey.hasClass(class_selected)) {
             $allKeys.removeClass(class_selected);
 
             this._manualSlotTime = null;
