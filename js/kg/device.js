@@ -10,6 +10,10 @@ var kg = window.kg || {};
         return;
     }
 
+    var cfg = {
+        waitTimeMultiplier: 50,
+    };
+
     /**
      * @param {kg.tlgBuilder} tlgBuilder
      * @param {null|jQuery}   $element
@@ -34,6 +38,9 @@ var kg = window.kg || {};
 
         // Whether the device received a packet within the previous cycle.
         this._isReceiving = false;
+
+        // The number of cycles to wait until attempting to retransmit
+        this._waitTime = null;
 
         if ($element) {
             this.setElement($element);
@@ -109,11 +116,14 @@ var kg = window.kg || {};
     device.prototype.tick = function tick() {
         var tlg;
 
+        updateWaitTime.call(this, Math.ceil(this._waitTime / cfg.waitTimeMultiplier));
+
         if (this._waitTime) {
             this._waitTime--;
 
             return this;
         }
+
 
         if (this.isReceiving()) {
             this._isReceiving = false;
@@ -142,7 +152,8 @@ var kg = window.kg || {};
      * Updates the numpad by marking slots active. This is a hack to display
      * active slots prior to pausing the simulation. Updating the retry count
      * makes alos sense here, because the user can then see before pausing
-     * how many times this specific device has failed to transmit.
+     * how many times this specific device has failed to transmit. Same goes for
+     * wait time update.
      */
     device.prototype.updateNumpadIfCollision = function updateNumpadIfCollision() {
         if (this.isWaiting()) {
@@ -155,6 +166,7 @@ var kg = window.kg || {};
 
         this._numpad.markActive(this._numpad.getNextActiveCount());
         updateRetryCount.call(this, this._numpad.getFailedAttemptCount() + 1);
+        updateWaitTime.call(this, Math.ceil(this._waitTime / cfg.waitTimeMultiplier));
     };
 
     /**
@@ -178,7 +190,7 @@ var kg = window.kg || {};
             return;
         }
 
-        this._waitTime = 50 * this._numpad.calculateSlotTime();
+        this._waitTime = cfg.waitTimeMultiplier * this._numpad.calculateSlotTime();
 
         this._numpad.toggleSelected(null);
 
@@ -186,7 +198,7 @@ var kg = window.kg || {};
     };
 
     device.prototype.updateNumpad = function updateNumpad() {
-        var selector = '.numpad-' + (this._waitTime / 50);
+        var selector = '.numpad-' + (this._waitTime / cfg.waitTimeMultiplier);
 
         this._$numpad.find(selector)[0].classList.add('numpad-selected');
     };
@@ -292,6 +304,17 @@ var kg = window.kg || {};
     function updateRetryCount(retryCount)
     {
         this._$element.find('.txt-retry-count').text(retryCount);
+    }
+
+    /**
+     * Updates the wait time of a device (the number of cycles left until
+     * the packet is attempted to be transmitted),
+     *
+     * @param {Integer} waitTime
+     */
+    function updateWaitTime(waitTime)
+    {
+        this._$element.find('.txt-waittime').text(waitTime);
     }
 
     kg.device = device;

@@ -42,6 +42,7 @@
     <g id="apollo" class="device rel-c1">
         <rect class="device-bg" x="0" y="40" width="140" height="100" />
         <rect class="device-screen" x="20" y="55" width="60" height="47" />
+        <text class="txt-waittime" transform="matrix(1 0 0 1 26 170)">0</text>
 
         <g>
             <text class="txt-retry-count" transform="matrix(1 0 0 1 50 88)">0</text>
@@ -57,6 +58,7 @@
     <g id="hermes" class="device rel-c6">
         <rect class="device-bg" x="160" y="40" width="180" height="100" />
         <rect class="device-screen" x="195" y="60" width="65" height="45" />
+        <text class="txt-waittime" transform="matrix(1 0 0 1 226 170)">0</text>
 
         <g>
             <!-- monitor -->
@@ -81,6 +83,7 @@
     <g id="pluto" class="device rel-c11">
         <rect class="device-bg" x="360" y="40" width="180" height="100" />
         <rect class="device-screen" x="420" y="55" width="60" height="42" />
+        <text class="txt-waittime" transform="matrix(1 0 0 1 426 170)">0</text>
 
         <g>
             <!-- monitor -->
@@ -104,6 +107,7 @@
     <g id="vesta" class="device rel-c16">
         <rect class="device-bg" x="560" y="40" width="180" height="100" />
         <rect class="device-screen" x="620" y="55" width="60" height="48" />
+        <text class="txt-waittime" transform="matrix(1 0 0 1 626 170)">0</text>
 
         <g>
             <text class="txt-retry-count" transform="matrix(1 0 0 1 649 88)">0</text>
@@ -119,6 +123,7 @@
     <g id="minerva" class="device rel-c21">
         <rect class="device-bg" x="760" y="40" width="140" height="100" />
         <rect class="device-screen" x="815" y="55" width="60" height="42" />
+        <text class="txt-waittime" transform="matrix(1 0 0 1 826 170)">0</text>
 
         <g>
             <!-- screen -->
