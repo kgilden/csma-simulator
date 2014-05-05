@@ -229,6 +229,10 @@ var kg = window.kg || {};
         if (!this._collisionFound) {
             this._collisionFound = true;
 
+            for (i in devices) {
+                devices[i].updateNumpadIfCollision();
+            }
+
             this.pause();
 
             return;

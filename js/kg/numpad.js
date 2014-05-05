@@ -54,6 +54,24 @@ var kg = window.kg || {};
     };
 
     /**
+     * Gets the number of next active slots from which the given numpad is
+     * allowed to pick its random slot time.
+     *
+     * @return {Integer}
+     */
+    numpad.prototype.getNextActiveCount = function getNextActiveCount() {
+        var c;
+
+        if (this._failedAttemptCount >= this._settings.maxAttemptCount) {
+            c = this._settings.maxAttemptCount;
+        } else {
+            c = this._failedAttemptCount + 1;
+        }
+
+        return Math.pow(2, c);
+    }
+
+    /**
      * Calculates the next slot time. After c collisions a random number of
      * slot times between 0 and 2^c - 1 is chosen.
      *
@@ -70,27 +88,18 @@ var kg = window.kg || {};
      */
     numpad.prototype.calculateSlotTime = function calculateSlotTime() {
         var c,
-            maxSlotTime,
+            activeCount = this.getNextActiveCount(),
             slotTime;
 
-        this._failedAttemptCount += 1;
-
-        if (this._failedAttemptCount < this._settings.maxAttemptCount) {
-            c = this._failedAttemptCount;
-        } else {
-            c = this._settings.maxAttemptCount;
-        }
-
-        maxSlotTime = Math.pow(2, c);
-
         if (this._manualSlotTime === null) {
-            slotTime = Math.round(Math.random() * (maxSlotTime - 1));
+            slotTime = Math.round(Math.random() * (activeCount - 1));
         } else {
             slotTime = this._manualSlotTime;
         }
 
-        this.markActive(maxSlotTime);
         this.markChosen(slotTime);
+
+        this._failedAttemptCount += 1;
 
         return slotTime;
     };

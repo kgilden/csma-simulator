@@ -139,6 +139,25 @@ var kg = window.kg || {};
     };
 
     /**
+     * Updates the numpad by marking slots active. This is a hack to display
+     * active slots prior to pausing the simulation. Updating the retry count
+     * makes alos sense here, because the user can then see before pausing
+     * how many times this specific device has failed to transmit.
+     */
+    device.prototype.updateNumpadIfCollision = function updateNumpadIfCollision() {
+        if (this.isWaiting()) {
+            return;
+        }
+
+        if (!this.isSending()) {
+            return;
+        }
+
+        this._numpad.markActive(this._numpad.getNextActiveCount());
+        updateRetryCount.call(this, this._numpad.getFailedAttemptCount() + 1);
+    };
+
+    /**
      * Resolves an occurred collison by waiting for a random amount of time
      * until retransmitting. Waiting is triggered only if this device is
      * actually in the middle of transmitting and is not already waiting
@@ -160,8 +179,6 @@ var kg = window.kg || {};
         }
 
         this._waitTime = 50 * this._numpad.calculateSlotTime();
-
-        updateRetryCount.call(this, this._numpad.getFailedAttemptCount());
 
         this._numpad.toggleSelected(null);
 
